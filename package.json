@@ -2,6 +2,7 @@
   "name": "sofanewitem",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://95.168.161.223/testui/",
   "scripts": {
     "dev": "next dev -p 4000",
     "build": "next build",
@@ -10,9 +11,13 @@
   "dependencies": {
     "@fullhuman/postcss-purgecss": "^2.3.0",
     "@tailwindcss/ui": "^0.6.2",
+    "@types/node": "^14.10.2",
+    "@types/react": "^16.9.49",
+    "axios": "^0.20.0",
     "next": "9.5.3",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "tailwindcss": "^1.8.10"
+    "tailwindcss": "^1.8.10",
+    "typescript": "^4.0.2"
   }
 }
