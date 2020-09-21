@@ -16,7 +16,7 @@ const TextInput = ({ handler, touched, hasError, meta }) => (
     </span>
   </div>  
 )
-export default class itementryData extends Component {
+export default class ItementryData extends Component {
     loginForm = FormBuilder.group({
         username: ["", Validators.required],
         password: ["", Validators.required],
@@ -31,6 +31,8 @@ export default class itementryData extends Component {
     }
     render() {
         return (
+               <div>
+                 asdsadsdassad666666666666666666
               <FieldGroup
                 control={this.loginForm}
                 render={({ get, invalid }) => (
@@ -70,6 +72,7 @@ export default class itementryData extends Component {
                   </form>
                 )}
               />
+              </div>
         );
     }
 }

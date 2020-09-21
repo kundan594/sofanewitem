@@ -21,7 +21,7 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx", "utils/history.js"
+    "**/*.tsx","pages/additem2.js"
   ],
   "exclude": [
     "node_modules"
