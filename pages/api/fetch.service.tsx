@@ -1174,6 +1174,10 @@ class FetchDataService {
 		return http.post("/news_items/" + data.id + "/"+ apiCallEndPoint+"?token=abcdef", {});
 
 	}
+	newDataSave(data){
+		console.log(data, "  === data");
+		return http.post("/news_items?token=abcdef",data);
+	}
 
 	update(id, data) {
 		return http.put(`/piece/${id}`, data);

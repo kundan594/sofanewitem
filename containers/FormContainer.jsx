@@ -62,10 +62,9 @@ class FormContainer extends Component {
       () => console.log(this.state.data)
     );
   }
-  handleAdd(name,value,arr) { 
-    console.log(name,value,"=================");  
-   
-  
+  handleAdd(name,value,arr) {
+    console.log(name,value,arr,"kkkk");
+    arr.push(value);
     this.setState(
       (prevState) => ({ data: { ...prevState.data, [name]:arr  } }),
       () => console.log(this.state.data)
@@ -73,7 +72,7 @@ class FormContainer extends Component {
   }
   handleFormSubmit(e) {
     e.preventDefault();
-    let userData = this.state.data;
+
 
     if(this.state.data.news_credits1 !==""){
       console.log(this.state.data.news_credits1,"this.state.data.news_credits1");
@@ -85,31 +84,39 @@ class FormContainer extends Component {
     }
 
     if(this.state.data.visual_credits1 !==""){
-      this.handleAdd('news_credits',this.state.data.news_credits1,this.state.data.news_credits)    
+      this.handleAdd('visual_credits',this.state.data.visual_credits1,this.state.data.visual_credits)    
     }
     if(this.state.data.visual_credits2 !==""){
-      this.handleAdd('news_credits',this.state.data.news_credits1,this.state.data.news_credits)  
+      this.handleAdd('visual_credits',this.state.data.visual_credits2,this.state.data.visual_credits)  
     }
     if(this.state.data.tages1 !==""){
-      this.handleAdd('news_credits',this.state.data.news_credits1,this.state.data.news_credits)   
+      this.handleAdd('tags',this.state.data.tags1,this.state.data.tags)   
     }
     if(this.state.data.tags2 !==""){
-      this.handleAdd('news_credits',this.state.data.news_credits1,this.state.data.news_credits)   
+      this.handleAdd('tags',this.state.data.tags2,this.state.data.tags)   
     }
     console.log(this.state.data, "userData");
+    let newData = this.state.data;
+    delete newData.news_credits1;
+    delete newData.news_credits2;
+    delete newData.visual_credits1;
+    delete newData.visual_credits2;
+    delete newData.tags1;
+    delete newData.tags2;
+    this.dataSave(newData);
 
-    // fetch('http://example.com',{
-    //     method: "POST",
-    //     body: JSON.stringify(userData),
-    //     headers: {
-    //       'Accept': 'application/json',
-    //       'Content-Type': 'application/json'
-    //     },
-    //   }).then(response => {
-    //     response.json().then(data =>{
-    //       console.log("Successful" + data);
-    //     })
-    // })
+    
+  }
+
+  dataSave(data) {
+    console.log(data, "asdas");
+    let dataRes = FetchDataService.newDataSave(data)
+      .then((response) => {
+        
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   }
 
   handleClearForm(e) {
@@ -119,8 +126,14 @@ class FormContainer extends Component {
         title: "",
         description: "",
         category: "",
-        news_credits: [],
+        news_credits1:"",
+        news_credits2:"",
+        news_credits:[],
         visual_credits: [],
+        visual_credits1: "",
+        visual_credits2: "",
+        tags1:"",
+        tags2: "",
         tags: [],
       },
     });
