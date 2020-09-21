@@ -236,7 +236,7 @@ class FormContainer extends Component {
           type={"secondary"}
           title={"Clear"}
           style={buttonStyle}
-          className ={'inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-100 hover:bg-indigo-200 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-700 active:bg-grey-300 transition duration-150 ease-in-out'}
+          className ={'rounded-lg px-4 md:px-5 xl:px-4 py-3 md:py-4 xl:py-3 bg-teal-500 hover:bg-teal-600 md:text-lg xl:text-base text-white font-semibold leading-tight shadow-md'}
         />
         
       </form>
