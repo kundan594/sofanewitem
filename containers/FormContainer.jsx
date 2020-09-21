@@ -1,10 +1,14 @@
 import React, { Component } from "react";
+import Link from "next/link";
+import Router from "next/router";
 
 /* Import Components */
 
 import Input from "../components/formComponent/Input";
 import Select from "../components/formComponent/Select";
 import Button from "../components/formComponent/Button";
+import FetchDataService from "../pages/api/fetch.service";
+
 
 class FormContainer extends Component {
   constructor(props) {
@@ -74,25 +78,25 @@ class FormContainer extends Component {
     e.preventDefault();
 
 
-    if(this.state.data.news_credits1 !==""){
+    if(this.state.data.news_credits1 !=="" &&  this.state.data.news_credits1 !==null){
       console.log(this.state.data.news_credits1,"this.state.data.news_credits1");
      // this.state.data.news_credits.push(this.state.data.news_credits1);    
      this.handleAdd('news_credits',this.state.data.news_credits1,this.state.data.news_credits)  
     }
-    if(this.state.data.news_credits2 !==""){
+    if(this.state.data.news_credits2 !=="" &&  this.state.data.news_credits2 !==null){
       this.handleAdd('news_credits',this.state.data.news_credits1,this.state.data.news_credits)   
     }
 
-    if(this.state.data.visual_credits1 !==""){
+    if(this.state.data.visual_credits1 !==""  &&  this.state.data.visual_credits1 !==null){
       this.handleAdd('visual_credits',this.state.data.visual_credits1,this.state.data.visual_credits)    
     }
-    if(this.state.data.visual_credits2 !==""){
+    if(this.state.data.visual_credits2 !=="" &&  this.state.data.visual_credits2 !==null){
       this.handleAdd('visual_credits',this.state.data.visual_credits2,this.state.data.visual_credits)  
     }
-    if(this.state.data.tages1 !==""){
+    if(this.state.data.tages1 !=="" &&  this.state.data.tages1 !==null){
       this.handleAdd('tags',this.state.data.tags1,this.state.data.tags)   
     }
-    if(this.state.data.tags2 !==""){
+    if(this.state.data.tags2 !=="" &&  this.state.data.tages2 !==null){
       this.handleAdd('tags',this.state.data.tags2,this.state.data.tags)   
     }
     console.log(this.state.data, "userData");
@@ -112,7 +116,11 @@ class FormContainer extends Component {
     console.log(data, "asdas");
     let dataRes = FetchDataService.newDataSave(data)
       .then((response) => {
-        
+        const router = useRouter();
+         this.handleClearForm(e);
+         router.push(
+          '',
+          '');
       })
       .catch((e) => {
         console.log(e);
