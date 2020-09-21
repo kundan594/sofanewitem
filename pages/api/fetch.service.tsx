@@ -2,7 +2,7 @@ import http from "../../plugin/http-common";
 
 class FetchDataService {	
 	getAll() {
-        return  {
+        return {
 			"news_items": [{
 				"id": "93ca7098-f453-11ea-8bc3-4b513da21209",
 				"title": "Test.News.Item1",
@@ -1019,9 +1019,9 @@ class FetchDataService {
 				"news_credits": ["", "asdsadsad"],
 				"visual_credits": ["", "asdsadsadsad"],
 				"description": "lllll",
-				"updated_at": 1600235936,
+				"updated_at": 1600616741,
 				"created_at": 1600235936,
-				"state": "new",
+				"state": "awaiting_review_by_lead_journalist",
 				"clips": [],
 				"tags": ["local_estonian"],
 				"thumbnail": null
@@ -1032,9 +1032,9 @@ class FetchDataService {
 				"news_credits": ["", "dfsfdf"],
 				"visual_credits": ["", "sdfsfsdf"],
 				"description": "srsdf",
-				"updated_at": 1600236633,
+				"updated_at": 1600421541,
 				"created_at": 1600236633,
-				"state": "new",
+				"state": "awaiting_video_upload",
 				"clips": [],
 				"tags": ["local_estonian"],
 				"thumbnail": null
@@ -1135,20 +1135,44 @@ class FetchDataService {
 				}],
 				"tags": ["local_estonian"],
 				"thumbnail": "https://cdn.so.fa.dog/thumbnails/sffdsf.jpg"
+			}, {
+				"id": "6af38f7c-fb58-11ea-9930-097dfce0e831",
+				"title": "asdsad",
+				"category": 5,
+				"news_credits": ["", "asdsadsad"],
+				"visual_credits": ["asdsadsad", "sadsadsa"],
+				"description": "sadsadsad",
+				"updated_at": 1600616775,
+				"created_at": 1600616775,
+				"state": "new",
+				"clips": [],
+				"tags": ["local_estonian"],
+				"thumbnail": null
 			}]
 		}
-
 	   //	return http.get("news_items?token=abcdef");
 	}
+
+	getAll1() {    
+			return http.get("news_items?token=abcdef");
+	}
+		
 
 	get(id) {
 		return http.get(`/piece/${id}`);
 	}
 
-	create(data) {
+	news_items_submit(data) {
 		console.log(data, "servcie data");
 		//return false;
-		return http.post("/piece", data);
+		return http.post("/news_items/" + data.id + "/submit?token=abcdef", {});
+	}
+
+	processedData(data,apiCallEndPoint){
+		console.log(data, "servcie data");
+		//return false;
+		return http.post("/news_items/" + data.id + "/"+ apiCallEndPoint+"?token=abcdef", {});
+
 	}
 
 	update(id, data) {

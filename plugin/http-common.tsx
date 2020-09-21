@@ -1,8 +1,8 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: "https://95.168.161.223/testui/",
-  //baseURL: "http://localhost:8888/",
+  //baseURL: "https://95.168.161.223/testui/",
+  baseURL: "https://cms-int.so.fa.dog/testui/",
   headers: {
     'Access-Control-Allow-Origin': '*',
     'Content-Type': 'application/json',

@@ -1,13 +1,13 @@
 import Head from 'next/head'
 import Layout from '../components/layout/Layout'
-import Table from "../components/table/Table";
+import  Newentry from "../components/newEntry/Newentry"
 
 
-export default function Home() {
+export default function AddItem() {
   return (
     <div>
       <Layout>
-        <Table></Table>
+          <Newentry></Newentry>
       </Layout>
     </div>
   )
