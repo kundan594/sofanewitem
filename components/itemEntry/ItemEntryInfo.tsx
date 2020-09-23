@@ -15,6 +15,9 @@ const TextInput = ({ handler, touched, hasError, meta }) => (
         && `${meta.label} is required`}
     </span>
   </div>  
+
+
+
 )
 export default class ItementryData extends Component {
     loginForm = FormBuilder.group({
@@ -22,6 +25,9 @@ export default class ItementryData extends Component {
         password: ["", Validators.required],
         rememberMe: false
     });
+    componentDidMount() {
+      console.log(this.loginForm,"loginForm");
+    }
     handleReset=() => {
         this.loginForm.reset();
     }
@@ -31,8 +37,7 @@ export default class ItementryData extends Component {
     }
     render() {
         return (
-               <div>
-                 asdsadsdassad666666666666666666
+               <div>           
               <FieldGroup
                 control={this.loginForm}
                 render={({ get, invalid }) => (
