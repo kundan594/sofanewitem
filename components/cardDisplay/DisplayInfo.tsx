@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import FetchDataService from "../../pages/api/fetch.service";
 import Link from "next/link";
 import Router from "next/router";
+import Popover  from '../formComponent/PopoverRender'
 const DisplayInfo = () => {
   const [DataAll, setfetchData] = useState(null);
   useEffect(() => {
@@ -207,68 +208,13 @@ const DisplayInfo = () => {
               </a>
             </div>
             <div className="-ml-px w-0 flex-1 flex">
-            
-<div className="relative">
-
-  <button type="button" className="group text-gray-500 inline-flex items-center space-x-2 text-base leading-6 font-medium hover:text-gray-900 focus:outline-none focus:text-gray-900 transition ease-in-out duration-150">
-    <span>Solutions</span>
-    
-    <svg className="text-gray-400 h-5 w-5 group-hover:text-gray-500 group-focus:text-gray-500 transition ease-in-out duration-150" viewBox="0 0 20 20" fill="currentColor">
-      <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-    </svg>
-  </button>
-
-
-  <div  className="absolute left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-xs sm:px-0">
-    <div className="rounded-lg shadow-lg">
-      <div className="rounded-lg shadow-xs overflow-hidden">
-        <div className="z-20 relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
-          <a href="#" className="-m-3 p-3 block space-y-1 rounded-md hover:bg-gray-50 transition ease-in-out duration-150">
-            <p className="text-base leading-6 font-medium text-gray-900">
-              Blog
-            </p>
-            <p className="text-sm leading-5 text-gray-500">
-              Learn about tips, product updates and company culture.
-            </p>
-          </a>
-          <a href="#" className="-m-3 p-3 block space-y-1 rounded-md hover:bg-gray-50 transition ease-in-out duration-150">
-            <p className="text-base leading-6 font-medium text-gray-900">
-              Help Center
-            </p>
-            <p className="text-sm leading-5 text-gray-500">
-              Get all of your questions answered in our forums of contact support.
-            </p>
-          </a>
-          <a href="#" className="-m-3 p-3 block space-y-1 rounded-md hover:bg-gray-50 transition ease-in-out duration-150">
-            <p className="text-base leading-6 font-medium text-gray-900">
-              Guides
-            </p>
-            <p className="text-sm leading-5 text-gray-500">
-              Learn how to maximize our platform to get the most out of it.
-            </p>
-          </a>
-          <a href="#" className="-m-3 p-3 block space-y-1 rounded-md hover:bg-gray-50 transition ease-in-out duration-150">
-            <p className="text-base leading-6 font-medium text-gray-900">
-              Events
-            </p>
-            <p className="text-sm leading-5 text-gray-500">
-              Check out webinars with experts and learn about our annual conference.
-            </p>
-          </a>
-          <a href="#" className="-m-3 p-3 block space-y-1 rounded-md hover:bg-gray-50 transition ease-in-out duration-150">
-            <p className="text-base leading-6 font-medium text-gray-900">
-              Security
-            </p>
-            <p className="text-sm leading-5 text-gray-500">
-              Understand how we take your privacy seriously.
-            </p>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
+              <a
+                href="#"
+                className="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm leading-5 text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 transition ease-in-out duration-150"
+              >                
+                {/* <span className="ml-3">ReadMore</span> */}
+                {/* <Popover color="gray" /> */}
+              </a>
             </div>
           </div>
         </div>
