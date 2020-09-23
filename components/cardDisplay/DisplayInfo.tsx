@@ -201,7 +201,7 @@ const DisplayInfo = () => {
           <div className="-mt-px flex">
             <div className="w-0 flex-1 flex border-r border-gray-200">
               <a
-                href="#"
+                 href="javascript:void(0);"
                 className="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm leading-5 text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 transition ease-in-out duration-150"
               >                
                 <span className="ml-3">{actionRender(item)}</span>
@@ -209,11 +209,11 @@ const DisplayInfo = () => {
             </div>
             <div className="-ml-px w-0 flex-1 flex">
               <a
-                href="#"
+                href="javascript:void(0);"
                 className="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm leading-5 text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 transition ease-in-out duration-150"
               >                
                 {/* <span className="ml-3">ReadMore</span> */}
-                {/* <Popover color="gray" /> */}
+                <Popover color="pink" dataInfo = {item} />
               </a>
             </div>
           </div>

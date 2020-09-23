@@ -1,13 +1,13 @@
 import React from "react";
 import Popper from "popper.js";
 
-const Popover = ({ color }) => {
+const Popover = ({ color,dataInfo }) => {
   const [popoverShow, setPopoverShow] = React.useState(false);
   const btnRef = React.createRef();
   const popoverRef = React.createRef();
   const openPopover = () => {
     new Popper(btnRef.current, popoverRef.current, {
-      placement: "top"
+      placement: "bottom"
     });
     setPopoverShow(true);
   };
@@ -18,13 +18,10 @@ const Popover = ({ color }) => {
     <>
       <div className="flex flex-wrap">
         <div className="w-full text-center">
-          <button
+          <a
+           href="javascript:void(0);"
             className={
-              "bg-" +
-              color +
-              "-500 text-white active:bg-" +
-            color +
-              "-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
+              ""
             }
             type="button"
             style={{ transition: "all .15s ease" }}
@@ -33,29 +30,25 @@ const Popover = ({ color }) => {
             }}
             ref={btnRef}
           >
-            top {color}
-          </button>
+           Read More
+          </a>
           <div
             className={
               (popoverShow ? "" : "hidden ") +
-              "bg-" +
-              color +
-              "-600 border-0 mb-3 block z-50 font-normal leading-normal text-sm max-w-xs text-left no-underline break-words rounded-lg"
+              " bg-white border-0 mb-3 block z-50 font-normal leading-normal text-sm max-w-lg text-left no-underline break-words rounded-lg"
             }
             ref={popoverRef}
           >
             <div>
               <div
                 className={
-                  "bg-" +
-                  color +
-                  "-600 text-white opacity-75 font-semibold p-3 mb-0 border-b border-solid border-gray-200 uppercase rounded-t-lg"
+                  " font-semibold p-3 mb-0 border-b border-solid border-gray-200 uppercase rounded-t-lg"
                 }
               >
-                {color} popover title
+                 {dataInfo.title}
               </div>
-              <div className="text-white p-3">
-                And here's some amazing content. It's very engaging. Right?
+              <div className=" p-3">
+                   {dataInfo.description}
               </div>
             </div>
           </div>
