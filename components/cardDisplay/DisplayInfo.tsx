@@ -3,32 +3,55 @@ import React, { useState, useEffect } from "react";
 import FetchDataService from "../../pages/api/fetch.service";
 import Link from "next/link";
 import Router from "next/router";
-import Popover  from '../formComponent/PopoverRender'
+
+import Popover  from '../formComponent/PopoverRender';
+import { PreviewDataService } from "../../pages/api/previewService";
 const DisplayInfo = () => {
   const [DataAll, setfetchData] = useState(null);
   useEffect(() => {
-    fetchData();
+    fetchData1();
   }, []);
+  function fetchData1() {
+    let data = FetchDataService.getAll1()
+   // setfetchData(data);
+    .then(response => {
+        setfetchData(response.data);
+        // console.log(response.data,"response ");
+        // console.log(response.data,"response.data.data");
+    })
+    .catch(e => {
+        console.log(e);
+    });
+  }
+
   function fetchData() {
     let data = FetchDataService.getAll();
-    setfetchData(data);
-    // .then(response => {
-    //     setfetchData(response.data.data);
-    // })
-    // .catch(e => {
-    //     console.log(e);
-    // });
+     setfetchData(data);
+    
   }
 
-  function actionPerformed(item, apiEndPoint) {
-    processedDataInfo(item, apiEndPoint);
+  function actionPerformed(item, apiEndPoint,e) {
+    e.preventDefault();
+    if(apiEndPoint =="Preview Clips"){
+      console.log(item,"item====");
+      ///PreviewDataService.clearData();
+      PreviewDataService.setData(item);
+      Router.push(
+        '/preview'
+        );
+      
+      
+    }
+    //processedDataInfo(item, apiEndPoint,e);
   }
 
-  function processedDataInfo(item, apiEndPoint) {
+  function processedDataInfo(item, apiEndPoint,e) {
+    e.preventDefault();
     console.log(item, "asdas");
     let data = FetchDataService.processedData(item, apiEndPoint)
       .then((response) => {
-        setfetchData(response.data.data);
+        fetchData1();
+      
       })
       .catch((e) => {
         console.log(e);
@@ -40,7 +63,7 @@ const DisplayInfo = () => {
       case "new": {
         return (
           <a
-            onClick={(e) => actionPerformed(item, "submit")}
+            onClick={(e) => actionPerformed(item, "submit",e)}
             href="javascript:void(0);"
           >
             Submit
@@ -52,7 +75,7 @@ const DisplayInfo = () => {
         return (
           <div>
             <a
-              onClick={(e) => actionPerformed(item, "lead_journalist_approve")}
+              onClick={(e) => actionPerformed(item, "lead_journalist_approve",e)}
               href="javascript:void(0);"
             >
               Approve
@@ -60,7 +83,7 @@ const DisplayInfo = () => {
             |{" "}
             <a
               href="javascript:void(0);"
-              onClick={(e) => actionPerformed(item, "lead_journalist_reject")}
+              onClick={(e) => actionPerformed(item, "lead_journalist_reject",e)}
             >
               Reject
             </a>{" "}
@@ -74,7 +97,7 @@ const DisplayInfo = () => {
         return (
           <div>
             <a
-              onClick={(e) => actionPerformed(item, "Preview Clips")}
+              onClick={(e) => actionPerformed(item, "Preview Clips",e)}
               href="javascript:void(0);"
             >
               Preview Clips
@@ -82,7 +105,7 @@ const DisplayInfo = () => {
             |{" "}
             <a
               onClick={(e) =>
-                actionPerformed(item, "lead_video_editor_approve")
+                actionPerformed(item, "lead_video_editor_approve",e)
               }
               href="javascript:void(0);"
             >
@@ -90,7 +113,7 @@ const DisplayInfo = () => {
             </a>{" "}
             <a
               href="javascript:void(0);"
-              onClick={(e) => actionPerformed(item, "lead_video_editor_reject")}
+              onClick={(e) => actionPerformed(item, "lead_video_editor_reject",e)}
             >
               Reject
             </a>{" "}
@@ -100,7 +123,7 @@ const DisplayInfo = () => {
       case "ready_for_push": {
         return (
           <a
-            onClick={(e) => actionPerformed(item, "push_to_feed")}
+            onClick={(e) => actionPerformed(item, "push_to_feed",e)}
             href="javascript:void(0);"
           >
             Push To Feed
@@ -110,7 +133,7 @@ const DisplayInfo = () => {
       case "pushed_to_feed": {
         return (
           <a
-            onClick={(e) => actionPerformed(item, "remove_from_feed")}
+            onClick={(e) => actionPerformed(item, "remove_from_feed",e)}
             href="javascript:void(0);"
           >
             Remove from Feed
@@ -120,7 +143,7 @@ const DisplayInfo = () => {
       case "removed_from_feed": {
         return (
           <a
-            onClick={(e) => actionPerformed(item, "push_to_feed")}
+            onClick={(e) => actionPerformed(item, "push_to_feed",e)}
             href="javascript:void(0);"
           >
             Push To Feed
@@ -135,6 +158,7 @@ const DisplayInfo = () => {
 
   const fetchDataInfo = DataAll?.news_items?.map((item, i) => (
     <>
+    
       <li className="col-span-1 flex flex-col text-center bg-white rounded-lg shadow">
         <div className="flex-1 truncate p-2 space-y-2 text-sm">
           <p className="mt-1 text-gray-500 text-sm leading-5 truncate">New </p>
@@ -159,7 +183,18 @@ const DisplayInfo = () => {
               <div className="text-gray-500  ">News Credits</div>
             </div>
             <div className="w-3/5  text-left ">
-              <div className="text-gray-700  ">{item.news_credits}</div>
+            <div className="text-gray-700  ">
+                 {
+                 item.news_credits?.map((news_credit, index) => (     
+                <>       
+                 <a href="{news_credit.url}">{news_credit.link_text}</a>  
+                 <span> | </span>
+                 </>
+                ))
+                }
+
+            </div>
+
             </div>
           </div>
           <div className="flex content-between flex-wrap">
@@ -167,7 +202,17 @@ const DisplayInfo = () => {
               <div className="text-gray-500  ">Visual Credits</div>
             </div>
             <div className="w-3/5  text-left ">
-              <div className="text-gray-700  ">{item.visual_credits}</div>
+              <div className="text-gray-700  ">
+              {
+                 item.visual_credits?.map((visual_credit, index) => (     
+                <>       
+                 <a href="{visual_credit.url}">{visual_credit.link_text}</a>  
+                 <span> | </span>
+                 </>
+                ))
+                }
+
+              </div>
             </div>
           </div>
           <div className="flex content-between flex-wrap">
@@ -189,11 +234,22 @@ const DisplayInfo = () => {
           </div>
 
           <div className="flex content-between flex-wrap">
+             
+             
             <div className="w-2/5 text-left ">
               <div className="text-gray-700  ">Description</div>
             </div>
             <div className="w-3/5  text-left ">
-              <div className="text-gray-700  ">{item.description}</div>
+              <div className="text-gray-700  ">
+              { item.descriptions.map(descitem => (
+
+                  descitem.sentences.map(sentence => (
+                  <span>  {sentence} </span>       
+                    ))
+
+                  ))}
+                
+                </div>
             </div>
           </div>
         </div>

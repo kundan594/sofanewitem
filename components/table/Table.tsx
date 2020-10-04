@@ -6,7 +6,7 @@ import Router from "next/router";
 const Table = () => {
   const [DataAll, setfetchData] = useState(null);
   useEffect(() => {
-    fetchData();
+   // fetchData();
   }, []);
   function fetchData() {
     let data = FetchDataService.getAll();
