@@ -3,11 +3,13 @@ import React, { useState, useEffect } from "react";
 import FetchDataService from "../../pages/api/fetch.service";
 import Link from "next/link";
 import Router from "next/router";
+import { useFileUpload } from 'use-file-upload'
 
 import Popover  from '../formComponent/PopoverRender';
-import { PreviewDataService } from "../../pages/api/previewService";
+import { PreviewDataService,messageService } from "../../pages/api/previewService";
 const DisplayInfo = () => {
   const [DataAll, setfetchData] = useState(null);
+  const [file, selectFile] = useFileUpload();
   useEffect(() => {
     fetchData1();
   }, []);
@@ -31,18 +33,21 @@ const DisplayInfo = () => {
   }
 
   function actionPerformed(item, apiEndPoint,e) {
+    
     e.preventDefault();
     if(apiEndPoint =="Preview Clips"){
-      console.log(item,"item====");
-      ///PreviewDataService.clearData();
-      PreviewDataService.setData(item);
-      Router.push(
-        '/preview'
-        );
+      console.log(item.clips,"item====");
+     // PreviewDataService.clearData();
+      PreviewDataService.setData(item.clips);
+      return false;
+      //messageService.sendMessage('Message from Home Page Component to App Component!');
+      // Router.push(
+      //   '/preview'
+      //   );
       
       
     }
-    //processedDataInfo(item, apiEndPoint,e);
+    processedDataInfo(item, apiEndPoint,e);
   }
 
   function processedDataInfo(item, apiEndPoint,e) {
@@ -56,6 +61,18 @@ const DisplayInfo = () => {
       .catch((e) => {
         console.log(e);
       });
+  }
+
+  function uplaodVideo(item, apiEndPoint,source, name, size, file){
+    let data = FetchDataService.uplaodVideo(item, apiEndPoint,source, name, size, file)
+      .then((response) => {
+        fetchData1();
+      
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+
   }
 
   function actionRender(item) {
@@ -91,7 +108,36 @@ const DisplayInfo = () => {
         );
       }
       case "awaiting_video_upload": {
-        return "Upload video";
+        
+        return (
+          <div>
+      <button
+        onClick={() => {
+         
+          selectFile({}, ({ source, name, size, file }) => {
+            // file - is the raw File Object
+            uplaodVideo(item,'upload_video',source, name, size, file );
+            console.log({ source, name, size, file },"ppppppppppppppp");
+            
+          })
+        }}
+      >
+        Click to Upload
+      </button>
+
+      {file ? (
+        <div>
+          <img src={file.source} alt='preview' />
+          <span> Name: {file.name} </span>
+          <span> Size: {file.size} </span>
+        </div>
+      ) : (
+        <span>No file selected</span>
+      )}
+    </div>
+
+        );
+        // return  (<form encType="multipart/form-data" method="POST" action="/news_items/upload_video?token=abcdef" > <input name='source_file' type='file'/><input type="submit"/> </form>)
       }
       case "awaiting_review_by_lead_video_editor": {
         return (
@@ -281,6 +327,9 @@ const DisplayInfo = () => {
     <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       {fetchDataInfo}
     </ul>
+
+  
+    
   );
 };
 
