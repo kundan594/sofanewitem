@@ -5,9 +5,17 @@ import Link from "next/link";
 import Router from "next/router";
 import { useFileUpload } from 'use-file-upload';
 
-
 import Popover from '../formComponent/PopoverRender';
 import { PreviewDataService, messageService } from "../../pages/api/previewService";
+
+import { config as f_config, library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+
+f_config.autoAddCss = false;
+library.add(fas, fab);
+
 const DisplayInfo = () => {
 	const [DataAll, setfetchData] = useState(null);
 	const [file, selectFile] = useFileUpload();
@@ -80,29 +88,24 @@ const DisplayInfo = () => {
 		switch (item.state) {
 			case "new": {
 				return (
-					<a
+					<button
 						onClick={(e) => actionPerformed(item, "submit", e)}
-						href="javascript:void(0);"
+						className="w-auto px-2 py-2 bg-indigo-600 text-sm text-white rounded"
 					>
 						Submit
-					</a>
+					</button>
 				);
 			}
 			case "awaiting_review_by_lead_journalist": {
 				// return  'Approve | Reject'
 				return (
-					<div>
-						<a onClick={(e) => actionPerformed(item, "lead_journalist_approve", e)}
-							href="javascript:void(0);">
-							Approve
-            			</a>{" "}
-            			|{" "}
-						<a
-							href="javascript:void(0);"
-							onClick={(e) => actionPerformed(item, "lead_journalist_reject", e)}
-						>
-							Reject
-            			</a>{" "}
+					<div className="flex space-x-2 items-center justify-center">
+						<svg onClick={(e) => actionPerformed(item, "lead_journalist_approve", e)} className="h-8 w-8 text-green-400 hover:text-green-600 cursor-pointer" x-description="Heroicon name: check-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+							<path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
+						</svg>
+						<svg onClick={(e) => actionPerformed(item, "lead_journalist_reject", e)} className="h-8 w-8 text-red-500 hover:text-red-600 cursor-pointer" x-description="Heroicon name: x-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+							<path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd"></path>
+						</svg>
 					</div>
 				);
 			}
@@ -110,6 +113,7 @@ const DisplayInfo = () => {
 				return (
 					<div>
 						<button
+							className="w-auto px-2 py-2 bg-indigo-600 text-sm text-white rounded"
 							onClick={() => {
 
 								selectFile({}, ({ source, name, size, file }) => {
@@ -144,10 +148,10 @@ const DisplayInfo = () => {
 							Clips
 						</span>
 						<svg onClick={(e) => actionPerformed(item, "lead_video_editor_approve", e)} className="h-8 w-8 text-green-400 hover:text-green-600 cursor-pointer" x-description="Heroicon name: check-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-							<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+							<path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
 						</svg>
 						<svg onClick={(e) => actionPerformed(item, "lead_video_editor_reject", e)} className="h-8 w-8 text-red-500 hover:text-red-600 cursor-pointer" x-description="Heroicon name: x-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-							<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path>
+							<path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd"></path>
 						</svg>
 					</div>
 				);
@@ -164,12 +168,7 @@ const DisplayInfo = () => {
 			}
 			case "pushed_to_feed": {
 				return (
-					<button
-						className="w-auto px-2 py-2 bg-indigo-600 text-sm text-white rounded"
-						onClick={(e) => actionPerformed(item, "remove_from_feed", e)}
-					>
-						Remove from Feed
-					</button>
+					<FontAwesomeIcon onClick={(e) => actionPerformed(item, "remove_from_feed", e)} className="w-4 h-4 text-red-400 hover:text-red-600 cursor-pointer" icon={['fas', 'trash']} />
 				);
 			}
 			case "removed_from_feed": {
@@ -183,7 +182,7 @@ const DisplayInfo = () => {
 				);
 			}
 			default: {
-				return "no  state matched --- think that ";
+				return "";
 			}
 		}
 	}
