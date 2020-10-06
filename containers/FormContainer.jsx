@@ -27,6 +27,11 @@ class FormContainer extends Component {
         tags1:"",
         tags2: "",
         tags: [],
+        language:'',
+        sentences:[],
+        sentences1:'',
+        sentences2:'',
+        sentences3:''
       },
 
       categoriesOptions: [
@@ -38,6 +43,10 @@ class FormContainer extends Component {
         "SCIENCE",
         "BUSINESS & TECH",
         "SELF-IMPROVEMENT",
+      ],
+      langOptions: [
+        "English",
+        "Estonia"       
       ],
       tagsOptions: ["Local Estonian Content", "NSFW", "NSFL"],
     };
@@ -159,12 +168,44 @@ class FormContainer extends Component {
           placeholder={"Enter your Title"}
           handleChange={this.handleInput}
         />
-        <Input
+        {/* <Input
           inputType={"text"}
           title={"Discription "}
           name={"description"}
           value={this.state.data.description}
           placeholder={"Enter your Description"}
+          handleChange={this.handleInput}
+        /> */}
+        <Select
+          title={"Language"}
+          name={"Language"}
+          options={this.state.langOptions}
+          value={this.state.data.language}
+          placeholder={"Select Language"}
+          handleChange={this.handleInput}
+        />
+        <Input
+          inputType={"text"}
+          title={"Sentences "}
+          name={"sentence1"}
+          value={this.state.data.sentence1}
+          placeholder={"Enter your sentence1"}
+          handleChange={this.handleInput}
+        />
+        <Input
+          inputType={"text"}
+          title={" "}
+          name={"sentence2"}
+          value={this.state.data.sentence2}
+          placeholder={"Enter your sentence2"}
+          handleChange={this.handleInput}
+        />
+        <Input
+          inputType={"text"}
+          title={" "}
+          name={"sentence3"}
+          value={this.state.data.sentence3}
+          placeholder={"Enter your sentence3"}
           handleChange={this.handleInput}
         />
         <Select
