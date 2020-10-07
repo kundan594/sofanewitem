@@ -98,8 +98,8 @@ class FetchDataService {
 	findByTitle(title) {
 		return http.get(`/piece?title=${title}`);
 	}
-	uplaodVideo(item, apiEndPoint,source, name, size, file){
-		return http.post("/news_items/" + item.id + "/"+ apiEndPoint+"?token=abcdef", {source});
+	uplaodVideo(item, apiEndPoint,data,config){
+		return http.post("/news_items/" + item.id + "/"+ apiEndPoint+"?token=abcdef", data, config);
 	}
 
 }
