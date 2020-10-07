@@ -1,10 +1,6 @@
-import Head from "next/head";
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import FetchDataService from "../../pages/api/fetch.service";
 import Link from "next/link";
-import Router from "next/router";
-import Popover from '../formComponent/PopoverRender';
-import { PreviewDataService, messageService } from "../../pages/api/previewService";
 import PreviewClip from '../previewClip/PreviewClip';
 
 import { config as f_config, library } from '@fortawesome/fontawesome-svg-core';
