@@ -1,6 +1,6 @@
 import Head from 'next/head'
-import Layout from '../components/layout/Layout'
-import  Newentry from "../components/newEntry/Newentry"
+import Layout from '../../components/layout/Layout'
+import  Newentry from "../../components/newEntry/Newentry"
 
 
 export default function AddItem() {
