@@ -16,7 +16,7 @@ class FormContainer extends Component {
     this.state = {
       data: {
         title: "",
-        description: "",
+        description: [],
         category: "",
         news_credits1:"",
         news_credits2:"",
@@ -29,9 +29,9 @@ class FormContainer extends Component {
         tags: [],
         language:'',
         sentences:[],
-        sentences1:'',
-        sentences2:'',
-        sentences3:''
+        sentence1:'',
+        sentence2:'',
+        sentence3:''
       },
 
       categoriesOptions: [
@@ -87,28 +87,48 @@ class FormContainer extends Component {
     e.preventDefault();
 
 
-    if(this.state.data.news_credits1 !=="" &&  this.state.data.news_credits1 !==null){
-      console.log(this.state.data.news_credits1,"this.state.data.news_credits1");
-     // this.state.data.news_credits.push(this.state.data.news_credits1);    
-     this.handleAdd('news_credits',this.state.data.news_credits1,this.state.data.news_credits)  
-    }
-    if(this.state.data.news_credits2 !=="" &&  this.state.data.news_credits2 !==null){
-      this.handleAdd('news_credits',this.state.data.news_credits1,this.state.data.news_credits)   
-    }
+    if(this.state.data.news_credits1 !=="" &&  this.state.data.news_credits2 !==null){
 
-    if(this.state.data.visual_credits1 !==""  &&  this.state.data.visual_credits1 !==null){
-      this.handleAdd('visual_credits',this.state.data.visual_credits1,this.state.data.visual_credits)    
+      let data = {'url':this.state.data.news_credits1,'link_text':this.state.data.news_credits2};
+      
+      this.state.data.news_credits.push(data);
+      
+    
     }
-    if(this.state.data.visual_credits2 !=="" &&  this.state.data.visual_credits2 !==null){
-      this.handleAdd('visual_credits',this.state.data.visual_credits2,this.state.data.visual_credits)  
+    
+
+    if(this.state.data.visual_credits1 !==""  &&  this.state.data.visual_credits2 !==null){
+      let data = {'url':this.state.data.visual_credits1,'link_text':this.state.data.visual_credits2};
+      data.link_text = this.state.data.visual_credits2;
+      this.state.data.visual_credits.push(data);     
     }
+   
     if(this.state.data.tages1 !=="" &&  this.state.data.tages1 !==null){
       this.handleAdd('tags',this.state.data.tags1,this.state.data.tags)   
     }
     if(this.state.data.tags2 !=="" &&  this.state.data.tages2 !==null){
       this.handleAdd('tags',this.state.data.tags2,this.state.data.tags)   
     }
-    console.log(this.state.data, "userData");
+   
+    if(this.state.data.language !==""  && this.state.data.language !==null){
+      console.log(this.state.data.language,"this.state.data.language");
+       let data = {language:this.state.data.language,sentences:[]} 
+       if(this.state.data.sentences1 !=""){
+        data.sentences.push(this.state.data.sentence1);
+       }
+       if(this.state.data.sentences2 !=""){
+        data.sentences.push(this.state.data.sentence2);
+       }
+
+       if(this.state.data.sentences3 !=""){
+        data.sentences.push(this.state.data.sentence3);
+       }
+
+       this.state.data.description.push(data);
+
+
+    }
+    console.dir(this.state.data, "userData");
     let newData = this.state.data;
     delete newData.news_credits1;
     delete newData.news_credits2;
@@ -116,13 +136,19 @@ class FormContainer extends Component {
     delete newData.visual_credits2;
     delete newData.tags1;
     delete newData.tags2;
+    delete newData.language;
+    delete newData.sentence1;
+    delete newData.sentence2;
+    delete newData.sentence3;
+
+  
     this.dataSave(newData);
 
     
   }
 
   dataSave(data) {
-    console.log(data, "asdas");
+    console.dir(data,"data");
     let dataRes = FetchDataService.newDataSave(data)
       .then((response) => {
         const router = useRouter();
@@ -178,7 +204,7 @@ class FormContainer extends Component {
         /> */}
         <Select
           title={"Language"}
-          name={"Language"}
+          name={"language"}
           options={this.state.langOptions}
           value={this.state.data.language}
           placeholder={"Select Language"}
