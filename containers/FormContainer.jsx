@@ -140,6 +140,7 @@ class FormContainer extends Component {
     delete newData.sentence1;
     delete newData.sentence2;
     delete newData.sentence3;
+    delete newData.sentences;
 
   
     this.dataSave(newData);
