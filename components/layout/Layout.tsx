@@ -5,9 +5,13 @@ import Router from 'next/router';
 import Link from 'next/link';
 
 const Layout = ({ children }: { children: ReactNode }) => {
-  useEffect(() => {});
+  useEffect(() => { });
   return (
     <div>
+      <Head>
+        <title>So.Fa.Dog-CMS</title>
+        <link rel="icon" href="/color-logo.ico" />
+      </Head>
       <Header></Header>
       <div className="bg-gray-100">
         <main>

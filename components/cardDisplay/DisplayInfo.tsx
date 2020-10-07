@@ -1,5 +1,5 @@
 import Head from "next/head";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import FetchDataService from "../../pages/api/fetch.service";
 import Link from "next/link";
 import Router from "next/router";
@@ -26,6 +26,19 @@ const DisplayInfo = () => {
 		fetchData1();
 	}, []);
 
+	useEffect(() => {
+        document.addEventListener("keyup", keyUpFunction, false);
+        return () => {
+            document.removeEventListener("keyup", keyUpFunction, false);
+        };
+	});
+	
+	const keyUpFunction = useCallback((event) => {
+        if (event.keyCode === 27) {
+            setIsClips(false);
+        }
+    }, []);
+
 	const handleVideoPreview = (e) => {
 		let video_as_base64 = URL.createObjectURL(e.target.files[0]);
 		let video_as_files = e.target.files[0];
@@ -37,15 +50,13 @@ const DisplayInfo = () => {
 	};
 
 	function actionPerformed(item, apiEndPoint, e) {
-		e.preventDefault();
 		if (apiEndPoint == "Preview Clips") {
 			console.log(item.clips, "item====");
 			setIsClips(true);
 			setClips(item.clips);
-			// PreviewDataService.clearData();
-			//PreviewDataService.setData(item.clips);
 			return false;
 		}
+		e.preventDefault();
 		processedDataInfo(item, apiEndPoint, e);
 	}
 
@@ -319,7 +330,7 @@ const DisplayInfo = () => {
 	));
 	return (
 		<div>
-			{!isClips ? (
+			
 				<div className="col-md-6">
 					<div className="mt-2 md:flex md:items-center md:justify-between">
 						<div className="flex-2 min-w-0">
@@ -351,7 +362,7 @@ const DisplayInfo = () => {
 						</ul>
 					</div>
 				</div>
-			) :
+			{isClips && (
 				<div className="fixed z-10 inset-0 overflow-y-auto">
 					<div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
 						<div className="fixed inset-0 transition-opacity">
@@ -371,7 +382,8 @@ const DisplayInfo = () => {
 								<div className="mt-2">
 
 									<div className="h-full overflow-y-auto align-middle sm:flex flex-wrap min-w-full px-4 sm:px-6 md:px-6 py-4">
-										{clips?.map((clip, i) => (
+										{clips?.sort((a, b) => a.aspect_ratio - b.aspect_ratio)
+										.map((clip, i) => (
 											<div className="mx-auto sm:mx-0 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5 h-82 sm:pr-4 mb-4">
 												<div className="w-full text-sm text-center">Aspect Ratio: {clip.aspect_ratio}</div>
 												<PreviewClip videoUrl={clip.url} />
@@ -383,7 +395,7 @@ const DisplayInfo = () => {
 						</div>
 					</div>
 				</div>
-			}
+			)}
 		</div>
 	);
 };
