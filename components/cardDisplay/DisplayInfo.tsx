@@ -3,10 +3,9 @@ import React, { useState, useEffect, useRef } from "react";
 import FetchDataService from "../../pages/api/fetch.service";
 import Link from "next/link";
 import Router from "next/router";
-import { useFileUpload } from 'use-file-upload';
-
 import Popover from '../formComponent/PopoverRender';
 import { PreviewDataService, messageService } from "../../pages/api/previewService";
+import PreviewClip from '../previewClip/PreviewClip';
 
 import { config as f_config, library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -166,7 +165,7 @@ const DisplayInfo = () => {
 				return (
 					<div className="flex space-x-2 items-center justify-center">
 						<span onClick={(e) => actionPerformed(item, "Preview Clips", e)} className="px-2 my-1 inline-flex text-xs leading-5 font-semibold rounded-full border border-blue-800 bg-blue-100 hover:bg-blue-200 text-blue-800 cursor-pointer">
-							Clips
+							{item.clips.length}. Clips
 						</span>
 						<svg onClick={(e) => actionPerformed(item, "lead_video_editor_approve", e)} className="h-8 w-8 text-green-400 hover:text-green-600 cursor-pointer" x-description="Heroicon name: check-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
 							<path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
@@ -359,31 +358,27 @@ const DisplayInfo = () => {
 							<div className="absolute inset-0 bg-gray-500 opacity-75"></div>
 						</div>
 						<span className="hidden sm:inline-block sm:align-middle sm:h-screen"></span>&#8203;
-						<div className="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-sm sm:w-full sm:p-6" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+						<div className="h-screen overflow-y-auto inline-block align-bottom bg-white rounded-lg px-4 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:align-middle sm:max-w-6xl sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
 							<div>
-								<div className="flex justify-end items-start">
-									<FontAwesomeIcon onClick={()=>setIsClips(false)} className="w-4 h-4 text-gray-400 hover:text-indigo-600 cursor-pointer" icon={['fas', 'times']} />
-								</div>
-								<div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
-
-								</div>
-								<div className="mt-3 text-center sm:mt-5">
-									<h3 className="text-lg leading-6 font-medium text-gray-900" id="modal-headline">
-										Payment successful
-								</h3>
-									<div className="mt-2">
-										<p className="text-sm leading-5 text-gray-500">
-											Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur amet labore.
-									</p>
+								<div className="flex py-4 top-0 sticky bg-white z-10">
+									<div className="w-1/2 px-4 sm:px-6 flex justify-start">
+										<h2 className="text-gray-500 text-base font-bold uppercase tracking-wide">Clips</h2>
+									</div>
+									<div className="w-1/2 flex justify-end">
+										<FontAwesomeIcon onClick={() => setIsClips(false)} className="w-4 h-4 text-gray-400 hover:text-indigo-600 cursor-pointer" icon={['fas', 'times']} />
 									</div>
 								</div>
-							</div>
-							<div className="mt-5 sm:mt-6">
-								<span className="flex w-full rounded-md shadow-sm">
-									<button type="button" className="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-indigo-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition ease-in-out duration-150 sm:text-sm sm:leading-5">
-										Go back to dashboard
-								</button>
-								</span>
+								<div className="mt-2">
+
+									<div className="h-full overflow-y-auto align-middle sm:flex flex-wrap min-w-full px-4 sm:px-6 md:px-6 py-4">
+										{clips?.map((clip, i) => (
+											<div className="mx-auto sm:mx-0 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5 h-82 sm:pr-4 mb-4">
+												<div className="w-full text-sm text-center">Aspect Ratio: {clip.aspect_ratio}</div>
+												<PreviewClip videoUrl={clip.url} />
+											</div>
+										))}
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
