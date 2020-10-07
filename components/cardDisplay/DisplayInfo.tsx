@@ -214,8 +214,8 @@ const DisplayInfo = () => {
 		<li className="cursor-default">
 			<div className="w-full block hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition duration-150 ease-in-out cursor-default">
 				<div className="px-4 py-4 sm:px-6">
-					<div className="w-full flex">
-						<div className="w-1/5 block">
+					<div className="w-full md:flex">
+						<div className="w-full md:w-1/5 block">
 							<div className="block">
 								<div className="text-base leading-5 font-medium text-indigo-600 flex-initial">
 									{item.title}
@@ -225,7 +225,7 @@ const DisplayInfo = () => {
 								</div>
 							</div>
 						</div>
-						<div className="w-2/5 ml-6 pl-2 block">
+						<div className="w-full md:w-2/5 ml-6 pl-2 block">
 							<div className="flex items-center justify-between">
 								<div className="text-sm leading-5 font-semibold text-gray-800 truncate">
 									Description
@@ -247,7 +247,7 @@ const DisplayInfo = () => {
 								))}
 							</div>
 						</div>
-						<div className="w-1/5 ml-6 pl-2 block">
+						<div className="w-full md:w-1/5 ml-6 pl-2 block">
 							<div>
 								<span className="text-gray-700 font-medium text-sm">News Credits</span>
 								<ul className="text-gray-600 text-sm">
@@ -279,7 +279,7 @@ const DisplayInfo = () => {
 								</ul>
 							</div>
 						</div>
-						<div className="w-1/5 flex items-center justify-center pl-2 block">
+						<div className="w-full md:w-1/5 flex items-center justify-center pl-2 block">
 							<div className="w-full flex items-center justify-center">
 								{/* <button className="w-auto px-2 py-2 bg-indigo-600 text-sm text-white rounded">Remove from feed</button> */}
 								{actionRender(item)}
