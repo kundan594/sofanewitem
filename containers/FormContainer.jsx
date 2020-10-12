@@ -194,7 +194,7 @@ class FormContainer extends Component {
 								title={"Title "}
 								name={"title"}
 								value={this.state.data.title}
-								placeholder={"Enter your Title"}
+								placeholder={"Enter Title"}
 								handleChange={this.handleInput}
 							/>
 						</div>
@@ -224,7 +224,7 @@ class FormContainer extends Component {
 								title={"1. Sentence"}
 								name={"sentence1"}
 								value={this.state.data.sentence1}
-								placeholder={"Enter your sentence1"}
+								placeholder={"Enter Sentence"}
 								handleChange={this.handleInput}
 							/>
 						</div>
@@ -234,7 +234,7 @@ class FormContainer extends Component {
 								title={"2. Sentence"}
 								name={"sentence2"}
 								value={this.state.data.sentence2}
-								placeholder={"Enter your sentence2"}
+								placeholder={"Enter Sentence"}
 								handleChange={this.handleInput}
 							/>
 						</div>
@@ -244,7 +244,7 @@ class FormContainer extends Component {
 								title={"3. Sentence"}
 								name={"sentence2"}
 								value={this.state.data.sentence2}
-								placeholder={"Enter your sentence3"}
+								placeholder={"Enter Sentence"}
 								handleChange={this.handleInput}
 							/>
 						</div>
@@ -257,7 +257,7 @@ class FormContainer extends Component {
 									title={"News credits"}
 									name={"news_credits1"}
 									value={this.state.data.news_credits1}
-									placeholder={"Enter your News credits"}
+									placeholder={"Enter News Credit Text"}
 									handleChange={this.handleInput}
 								/>
 							</div>
@@ -267,7 +267,7 @@ class FormContainer extends Component {
 									title={""}
 									name={"news_credits2"}
 									value={this.state.data.news_credits1}
-									placeholder={"Enter your News credits"}
+									placeholder={"Enter News Credit URL"}
 									handleChange={this.handleInput}
 								/>
 							</div>
@@ -279,7 +279,7 @@ class FormContainer extends Component {
 									title={""}
 									name={"news_credits3"}
 									value={this.state.data.news_credits1}
-									placeholder={"Enter your News credits"}
+									placeholder={"Enter News Credit Text"}
 									handleChange={this.handleInput}
 								/>
 							</div>
@@ -289,7 +289,7 @@ class FormContainer extends Component {
 									title={""}
 									name={"news_credits4"}
 									value={this.state.data.news_credits1}
-									placeholder={"Enter your News credits"}
+									placeholder={"Enter News Credit URL"}
 									handleChange={this.handleInput}
 								/>
 							</div>
@@ -301,7 +301,7 @@ class FormContainer extends Component {
 									title={"Visual Credits"}
 									name={"visual_credits1"}
 									value={this.state.data.visual_credits2}
-									placeholder={"Enter your Visual Credits"}
+									placeholder={"Enter Visual Credit Text"}
 									handleChange={this.handleInput}
 								/>
 							</div>
@@ -311,7 +311,7 @@ class FormContainer extends Component {
 									title={""}
 									name={"visual_credits2"}
 									value={this.state.data.visual_credits2}
-									placeholder={"Enter your Visual Credits"}
+									placeholder={"Enter Visual Credit URL"}
 									handleChange={this.handleInput}
 								/>
 							</div>
@@ -323,7 +323,7 @@ class FormContainer extends Component {
 									title={""}
 									name={"visual_credits3"}
 									value={this.state.data.visual_credits2}
-									placeholder={"Enter your Visual Credits"}
+									placeholder={"Enter Visual Credit Text"}
 									handleChange={this.handleInput}
 								/>
 							</div>
@@ -333,7 +333,7 @@ class FormContainer extends Component {
 									title={""}
 									name={"visual_credits4"}
 									value={this.state.data.visual_credits2}
-									placeholder={"Enter your Visual Credits"}
+									placeholder={"Enter Visual Credit URL"}
 									handleChange={this.handleInput}
 								/>
 							</div>
@@ -346,6 +346,22 @@ class FormContainer extends Component {
 								value={this.state.data.tags1}
 								placeholder={"Select Tags"}
 								handleChange={this.handleInput}
+							/>
+						</div>
+						<div className="w-full flex justify-center space-x-2 pt-4">
+							<Button
+								action={this.handleFormSubmit}
+								type={"primary"}
+								title={"Submit"}
+								style={buttonStyle}
+								className={'inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-700 active:bg-indigo-700 transition duration-150 ease-in-out'}
+							/>
+							<Button
+								action={this.handleClearForm}
+								type={"secondary"}
+								title={"Clear"}
+								style={buttonStyle}
+								className={'rounded-lg px-4 md:px-5 xl:px-4 py-3 md:py-4 xl:py-3 bg-teal-500 hover:bg-teal-600 md:text-lg xl:text-base text-white font-semibold leading-tight shadow-md'}
 							/>
 						</div>
 					</div>
