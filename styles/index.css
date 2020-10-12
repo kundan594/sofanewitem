@@ -3,13 +3,3 @@
 @tailwind components;
 
 @tailwind utilities;
-
-body{
-    margin: 0 !important;
-}
-.space-y-2{
-    margin-top: 0.5rem;
-}
-.space-x-2{
-    margin-left: 0.5rem;
-}
