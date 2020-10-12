@@ -188,7 +188,7 @@ class FormContainer extends Component {
 			<div className="h-full overflow-y-auto align-middle sm:flex flex-wrap min-w-full px-4 sm:px-6 md:px-6 py-4">
 				<div className="w-full flex max-w-screen-lg mx-auto h-full space-x-4">
 					<div className="w-1/2 space-y-2">
-						<div className="w-full">
+						<div className="w-full mt-2">
 							<Input
 								inputType={"text"}
 								title={"Title "}
@@ -198,7 +198,7 @@ class FormContainer extends Component {
 								handleChange={this.handleInput}
 							/>
 						</div>
-						<div className="w-full">
+						<div className="w-full mt-2">
 							<Select
 								title={"Category"}
 								name={"category"}
@@ -208,7 +208,7 @@ class FormContainer extends Component {
 								handleChange={this.handleInput}
 							/>
 						</div>
-						<div className="w-full">
+						<div className="w-full mt-2">
 							<Select
 								title={"Description"}
 								name={"language"}
@@ -218,7 +218,7 @@ class FormContainer extends Component {
 								handleChange={this.handleInput}
 							/>
 						</div>
-						<div className="w-full">
+						<div className="w-full mt-2">
 							<Input
 								inputType={"text"}
 								title={"1. Sentence"}
@@ -228,7 +228,7 @@ class FormContainer extends Component {
 								handleChange={this.handleInput}
 							/>
 						</div>
-						<div className="w-full">
+						<div className="w-full mt-2">
 							<Input
 								inputType={"text"}
 								title={"2. Sentence"}
@@ -238,7 +238,7 @@ class FormContainer extends Component {
 								handleChange={this.handleInput}
 							/>
 						</div>
-						<div className="w-full">
+						<div className="w-full mt-2">
 							<Input
 								inputType={"text"}
 								title={"3. Sentence"}
@@ -250,7 +250,7 @@ class FormContainer extends Component {
 						</div>
 					</div>
 					<div className="w-1/2 space-y-2">
-						<div className="w-full flex space-x-2">
+						<div className="w-full flex space-x-2 mt-2">
 							<div className="w-1/2">
 								<Input
 									inputType={"text"}
@@ -272,7 +272,7 @@ class FormContainer extends Component {
 								/>
 							</div>
 						</div>
-						<div className="w-full flex space-x-2">
+						<div className="w-full flex space-x-2 mt-2">
 							<div className="w-1/2">
 								<Input
 									inputType={"text"}
@@ -294,7 +294,7 @@ class FormContainer extends Component {
 								/>
 							</div>
 						</div>
-						<div className="w-full flex space-x-2">
+						<div className="w-full flex space-x-2 mt-2">
 							<div className="w-1/2">
 								<Input
 									inputType={"text"}
@@ -316,7 +316,7 @@ class FormContainer extends Component {
 								/>
 							</div>
 						</div>
-						<div className="w-full flex space-x-2">
+						<div className="w-full flex space-x-2 mt-2">
 							<div className="w-1/2">
 								<Input
 									inputType={"text"}
@@ -338,7 +338,7 @@ class FormContainer extends Component {
 								/>
 							</div>
 						</div>
-						<div className="w-full">
+						<div className="w-full mt-2">
 							<Select
 								title={"Tags"}
 								name={"tags1"}
@@ -348,7 +348,7 @@ class FormContainer extends Component {
 								handleChange={this.handleInput}
 							/>
 						</div>
-						<div className="w-full flex justify-center space-x-2 pt-4">
+						<div className="w-full flex justify-center space-x-2 pt-4 mt-2">
 							<Button
 								action={this.handleFormSubmit}
 								type={"primary"}
@@ -361,7 +361,7 @@ class FormContainer extends Component {
 								type={"secondary"}
 								title={"Clear"}
 								style={buttonStyle}
-								className={'rounded-lg px-4 md:px-5 xl:px-4 py-3 md:py-4 xl:py-3 bg-teal-500 hover:bg-teal-600 md:text-lg xl:text-base text-white font-semibold leading-tight shadow-md'}
+								className={'rounded-lg px-4 md:px-5 xl:px-4 py-3 md:py-4 xl:py-3 bg-gray-500 hover:bg-gray-600 md:text-lg xl:text-base text-white font-semibold leading-tight shadow-md'}
 							/>
 						</div>
 					</div>
