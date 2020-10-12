@@ -7,6 +7,7 @@ import { config as f_config, library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
+import FormContainer from "../../containers/FormContainer";
 
 f_config.autoAddCss = false;
 library.add(fas, fab);
@@ -17,23 +18,26 @@ const DisplayInfo = () => {
 	const inputRef = useRef(null);
 	const [isClips, setIsClips] = useState(false);
 	const [clips, setClips] = useState(null);
+	const [isAddItem, setIsAddItem] = useState(false);
+
+	const [newsItem, setNewsItem] = useState(null);
 
 	useEffect(() => {
 		fetchData1();
 	}, []);
 
 	useEffect(() => {
-        document.addEventListener("keyup", keyUpFunction, false);
-        return () => {
-            document.removeEventListener("keyup", keyUpFunction, false);
-        };
+		document.addEventListener("keyup", keyUpFunction, false);
+		return () => {
+			document.removeEventListener("keyup", keyUpFunction, false);
+		};
 	});
-	
+
 	const keyUpFunction = useCallback((event) => {
-        if (event.keyCode === 27) {
-            setIsClips(false);
-        }
-    }, []);
+		if (event.keyCode === 27) {
+			setIsClips(false);
+		}
+	}, []);
 
 	const handleVideoPreview = (e) => {
 		let video_as_base64 = URL.createObjectURL(e.target.files[0]);
@@ -326,38 +330,36 @@ const DisplayInfo = () => {
 	));
 	return (
 		<div>
-			
-				<div className="col-md-6">
-					<div className="mt-2 md:flex md:items-center md:justify-between">
-						<div className="flex-2 min-w-0">
-							<h2 className="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:leading-9 sm:truncate">
-								News Items
+			<div className="col-md-6">
+				<div className="mt-2 md:flex md:items-center md:justify-between">
+					<div className="flex-2 min-w-0">
+						<h2 className="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:leading-9 sm:truncate">
+							News Items
         				</h2>
-						</div>
-						<div className="mt-4 flex-shrink-0 flex md:mt-0 md:ml-4">
-							<span className="ml-3 shadow-sm rounded-md">
-								<button onClick={fetchData1} type="button" className="inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-700 active:bg-indigo-700 transition duration-150 ease-in-out">
-									Fetch Items
-          						</button>
-							</span>
-							<span className="ml-3 shadow-sm rounded-md">
-								<Link href="/additem">
-									<button
-										type="button"
-										className="inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-blue-600 hover:bg-blue-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-700 active:bg-blue-700 transition duration-150 ease-in-out"
-									>
-										Add item
-          						</button>
-								</Link>
-							</span>
-						</div>
 					</div>
-					<div className="mt-2 bg-white shadow overflow-hidden sm:rounded-md">
-						<ul className="divide-y divide-gray-500">
-							{fetchDataInfo}
-						</ul>
+					<div className="mt-4 flex-shrink-0 flex md:mt-0 md:ml-4">
+						<span className="ml-3 shadow-sm rounded-md">
+							<button onClick={fetchData1} type="button" className="inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-700 active:bg-indigo-700 transition duration-150 ease-in-out">
+								Fetch Items
+          						</button>
+						</span>
+						<span className="ml-3 shadow-sm rounded-md">
+							<button
+								onClick={() => {setIsAddItem(true)}}
+								type="button"
+								className="inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-blue-600 hover:bg-blue-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-700 active:bg-blue-700 transition duration-150 ease-in-out"
+							>
+								Add item
+          					</button>
+						</span>
 					</div>
 				</div>
+				<div className="mt-2 bg-white shadow overflow-hidden sm:rounded-md">
+					<ul className="divide-y divide-gray-500">
+						{fetchDataInfo}
+					</ul>
+				</div>
+			</div>
 			{isClips && (
 				<div className="fixed z-10 inset-0 overflow-y-auto">
 					<div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
@@ -379,13 +381,38 @@ const DisplayInfo = () => {
 
 									<div className="h-full overflow-y-auto align-middle sm:flex flex-wrap min-w-full px-4 sm:px-6 md:px-6 py-4">
 										{clips?.sort((a, b) => a.aspect_ratio - b.aspect_ratio)
-										.map((clip, i) => (
-											<div className="mx-auto sm:mx-0 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5 h-82 sm:pr-4 mb-4">
-												<div className="w-full text-sm text-center">Aspect Ratio: {clip.aspect_ratio}</div>
-												<PreviewClip videoUrl={clip.url} />
-											</div>
-										))}
+											.map((clip, i) => (
+												<div className="mx-auto sm:mx-0 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5 h-82 sm:pr-4 mb-4">
+													<div className="w-full text-sm text-center">Aspect Ratio: {clip.aspect_ratio}</div>
+													<PreviewClip videoUrl={clip.url} />
+												</div>
+											))}
 									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			)}
+			{isAddItem && (
+				<div className="fixed z-10 inset-0 overflow-y-auto">
+					<div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+						<div className="fixed inset-0 transition-opacity">
+							<div className="absolute inset-0 bg-gray-500 opacity-75"></div>
+						</div>
+						<span className="hidden sm:inline-block sm:align-middle sm:h-screen"></span>&#8203;
+						<div className="h-screen overflow-y-auto inline-block align-bottom bg-white rounded-lg px-4 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:align-middle sm:max-w-6xl sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+							<div>
+								<div className="flex py-4 top-0 sticky bg-white z-10">
+									<div className="w-1/2 px-4 sm:px-6 flex justify-start">
+										<h2 className="text-gray-500 text-base font-bold uppercase tracking-wide">Add News Item</h2>
+									</div>
+									<div className="w-1/2 flex justify-end">
+										<FontAwesomeIcon onClick={() => setIsAddItem(false)} className="w-4 h-4 text-gray-400 hover:text-indigo-600 cursor-pointer" icon={['fas', 'times']} />
+									</div>
+								</div>
+								<div className="mt-2">
+									<FormContainer />
 								</div>
 							</div>
 						</div>
