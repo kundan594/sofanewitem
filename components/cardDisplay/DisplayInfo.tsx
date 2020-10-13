@@ -215,21 +215,23 @@ const DisplayInfo = () => {
 	}
 
 	const fetchDataInfo = DataAll?.news_items?.map((item, i) => (
-		<li className="cursor-default">
+		<li key={i} className="cursor-default">
 			<div className="w-full block hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition duration-150 ease-in-out cursor-default">
 				<div className="px-4 py-4 sm:px-6">
 					<div className="w-full md:flex">
 						<div className="w-full md:w-1/5 block">
 							<div className="block">
-								<div className="text-base leading-5 font-medium text-indigo-600 flex-initial">
+								<div className="text-base leading-5 font-medium text-indigo-600 flex-initial break-words">
 									{item.title}
 								</div>
 								<div className="flex ml-2 py-2">
-									<img className="w-1/2 h-full" src={item.thumbnail} />
+									{item.thumbnails.length > 0 &&(
+										<img className="w-1/2 h-full" src={item.thumbnails[0].url} />
+									)}
 								</div>
 							</div>
 						</div>
-						<div className="w-full md:w-2/5 ml-6 pl-2 block">
+						<div className="w-full md:w-2/5 md:ml-6 pl-2 block">
 							<div className="flex items-center justify-between">
 								<div className="text-sm leading-5 font-semibold text-gray-800 truncate">
 									Description
@@ -237,13 +239,13 @@ const DisplayInfo = () => {
 							</div>
 							<div className="block">
 								{item.descriptions.map((description, i) => (
-									<div className="my-1">
+									<div key={i} className="my-1">
 										<span className="text-gray-700 font-medium text-sm capitalize">{description.language}</span>
 										<ul className="text-gray-600 text-sm">
 											{description.sentences.map((sentence, i) => (
-												<li className="flex items-center">
+												<li key={i} className="flex items-center">
 													<span className="w-2 h-2 mr-2 bg-gray-400 rounded-full"></span>
-													<span className="flex-initial">sentence</span>
+													<span className="flex-initial break-words">{sentence}</span>
 												</li>
 											))}
 										</ul>
@@ -251,16 +253,16 @@ const DisplayInfo = () => {
 								))}
 							</div>
 						</div>
-						<div className="w-full md:w-1/5 ml-6 pl-2 block">
+						<div className="w-full md:w-1/5 md:ml-6 pl-2 block">
 							<div>
 								<span className="text-gray-700 font-medium text-sm">News Credits</span>
 								<ul className="text-gray-600 text-sm">
 									{item.news_credits.map((news, i) => (
 										<>
 											{news.link_text.length > 1 && news.link_text != "" && (
-												<li className="flex items-center">
+												<li key={i} className="flex items-center">
 													<span className="w-2 h-2 mr-2 bg-gray-400 rounded-full"></span>
-													<span className="truncate cursor-pointer"><a href={news.url != "" ? news.url : 'javascript:void(0);'} target="_blank">{news.link_text}</a></span>
+													<span className="break-words cursor-pointer"><a href={news.url != "" ? news.url : 'void(0)'} target="_blank">{news.link_text}</a></span>
 												</li>
 											)}
 										</>
@@ -273,9 +275,9 @@ const DisplayInfo = () => {
 									{item.visual_credits.map((visual, i) => (
 										<>
 											{visual.link_text.length > 1 && visual.link_text != "" && (
-												<li className="flex items-center">
+												<li key={i} className="flex items-center">
 													<span className="w-2 h-2 mr-2 bg-gray-400 rounded-full"></span>
-													<span className="truncate cursor-pointer"><a href={visual.url != "" ? visual.url : 'javascript:void(0);'} target="_blank">{visual.link_text}</a></span>
+													<span className="break-words cursor-pointer"><a href={visual.url != "" ? visual.url : 'void(0)'} target="_blank">{visual.link_text}</a></span>
 												</li>
 											)}
 										</>
@@ -283,7 +285,7 @@ const DisplayInfo = () => {
 								</ul>
 							</div>
 						</div>
-						<div className="w-full md:w-1/5 flex items-center justify-center pl-2 block">
+						<div className="hidden w-1/5 md:flex items-center justify-center pl-2 block">
 							<div className="w-full flex items-center justify-center">
 								{/* <button className="w-auto px-2 py-2 bg-indigo-600 text-sm text-white rounded">Remove from feed</button> */}
 								{actionRender(item)}
@@ -291,7 +293,7 @@ const DisplayInfo = () => {
 						</div>
 					</div>
 					<div className="w-full mt-3">
-						<div className="flex">
+						<div className="md:flex">
 							<div className="flex items-center mr-2">
 								<span className="text-gray-800 font-medium text-sm mr-1">Category: </span>
 								<div className="space-x-2 flex flex-wrap items-center">
@@ -305,8 +307,8 @@ const DisplayInfo = () => {
 								<div className="space-x-2 flex flex-wrap items-center">
 									{item.tags.length > 0 && (
 										<>
-											{item.tags.map(tag => (
-												<span className="px-2 my-1 inline-flex text-xs leading-5 font-semibold rounded-full border border-green-800 bg-green-100 text-green-800 uppercase">
+											{item.tags.map((tag,i) => (
+												<span key={i} className="px-2 my-1 inline-flex text-xs leading-5 font-semibold rounded-full border border-green-800 bg-green-100 text-green-800 uppercase">
 													{tag}
 												</span>
 											))}
@@ -324,6 +326,11 @@ const DisplayInfo = () => {
 							</div>
 						</div>
 					</div>
+					<div className="w-full md:hidden flex items-center justify-center pt-2 mt-2 pl-2 block border-t-2 border-gray-200 ">
+						<div className="w-full flex items-center justify-center">
+							{actionRender(item)}
+						</div>
+					</div>
 				</div>
 			</div>
 		</li>
@@ -338,7 +345,7 @@ const DisplayInfo = () => {
         				</h2>
 					</div>
 					<div className="mt-4 flex-shrink-0 flex md:mt-0 md:ml-4">
-						<span className="ml-3 shadow-sm rounded-md">
+						<span className="md:ml-3 shadow-sm rounded-md">
 							<button onClick={fetchData1} type="button" className="inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-700 active:bg-indigo-700 transition duration-150 ease-in-out">
 								Fetch Items
           						</button>
@@ -382,7 +389,7 @@ const DisplayInfo = () => {
 									<div className="h-full overflow-y-auto align-middle sm:flex flex-wrap min-w-full px-4 sm:px-6 md:px-6 py-4">
 										{clips?.sort((a, b) => a.aspect_ratio - b.aspect_ratio)
 											.map((clip, i) => (
-												<div className="mx-auto sm:mx-0 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5 h-82 sm:pr-4 mb-4">
+												<div key={i} className="mx-auto sm:mx-0 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5 h-82 sm:pr-4 mb-4">
 													<div className="w-full text-sm text-center">Aspect Ratio: {clip.aspect_ratio}</div>
 													<PreviewClip videoUrl={clip.url} />
 												</div>
