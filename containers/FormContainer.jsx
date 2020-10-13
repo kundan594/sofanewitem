@@ -186,8 +186,8 @@ class FormContainer extends Component {
 	render() {
 		return (
 			<div className="h-full overflow-y-auto align-middle sm:flex flex-wrap min-w-full px-4 sm:px-6 md:px-6 py-4">
-				<div className="w-full flex max-w-screen-lg mx-auto h-full space-x-4">
-					<div className="w-1/2 space-y-2">
+				<div className="w-full md:flex max-w-screen-lg mx-auto h-full md:space-x-4">
+					<div className="w-full md:w-1/2 space-y-2">
 						<div className="w-full mt-2">
 							<Input
 								inputType={"text"}
@@ -249,7 +249,7 @@ class FormContainer extends Component {
 							/>
 						</div>
 					</div>
-					<div className="w-1/2 space-y-2">
+					<div className="w-full md:w-1/2 space-y-2">
 						<div className="w-full flex space-x-2 mt-2">
 							<div className="w-1/2">
 								<Input
