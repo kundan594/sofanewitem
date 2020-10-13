@@ -7,10 +7,10 @@ const PreviewClip = (props) => {
     const myRef = useRef(null);
     const [playing, setPlaying] = useState(false)
     const [controls, setControls] = useState(false)
-    const [url, setUrl] = useState()
+    const [url, setUrl] = useState({video: "",image: ""});
 
     useEffect(() => {
-        setUrl(props.videoUrl);
+        setUrl({video:props.videoUrl, image: props.image});
         var video = myRef;
         var hls = new Hls({
             xhrSetup: function(xhr, url) {
@@ -45,19 +45,18 @@ const PreviewClip = (props) => {
     return (
         <div className="flex flex-col rounded shadow-lg overflow-hidden">
             <div className="relative flex-shrink-0">
-                <button type="button" className="relative block w-full rounded overflow-hidden focus:outline-none focus:shadow-outline">
+                <div className="relative block w-full h-full rounded overflow-hidden focus:outline-none focus:shadow-outline">
                     <ReactPlayer
                         ref={myRef}
-                        className='react-player w-full h-full bg-black'
+                        className='react-player bg-black'
                         width='100%'
-                        height='100%'
-                        url={url}
+                        url={url.video}
                         pip={false}
                         playing={playing}
                         controls={controls}
                         playsinline
                         controlsList="nodownload"
-                        light={false}
+                        light={url.image}
                         loop={true}
                         playbackRate={1.0}
                         volume={0.8}
@@ -75,7 +74,7 @@ const PreviewClip = (props) => {
                             </svg>
                         </div>
                     )}
-                </button>
+                </div>
             </div>
         </div>
     )

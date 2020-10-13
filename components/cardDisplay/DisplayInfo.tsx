@@ -17,7 +17,7 @@ const DisplayInfo = () => {
 	const [video, setVideo] = useState(null);
 	const inputRef = useRef(null);
 	const [isClips, setIsClips] = useState(false);
-	const [clips, setClips] = useState(null);
+	const [clips, setClips] = useState({video: null, thumbnails: null});
 	const [isAddItem, setIsAddItem] = useState(false);
 
 	const [newsItem, setNewsItem] = useState(null);
@@ -53,7 +53,7 @@ const DisplayInfo = () => {
 		if (apiEndPoint == "Preview Clips") {
 			console.log(item.clips, "item====");
 			setIsClips(true);
-			setClips(item.clips);
+			setClips({video: item.clips, thumbnails: item.thumbnails});
 			return false;
 		}
 		e.preventDefault();
@@ -374,7 +374,7 @@ const DisplayInfo = () => {
 							<div className="absolute inset-0 bg-gray-500 opacity-75"></div>
 						</div>
 						<span className="hidden sm:inline-block sm:align-middle sm:h-screen"></span>&#8203;
-						<div className="h-screen overflow-y-auto inline-block align-bottom bg-white rounded-lg px-4 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:align-middle sm:max-w-6xl sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+						<div className="w-full h-screen overflow-y-auto inline-block align-bottom bg-white rounded-lg px-4 pb-4 text-left overflow-hidden shadow-xl transform transition-all md:align-middle md:max-w-6xl" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
 							<div>
 								<div className="flex py-4 top-0 sticky bg-white z-10">
 									<div className="w-1/2 px-4 sm:px-6 flex justify-start">
@@ -386,12 +386,18 @@ const DisplayInfo = () => {
 								</div>
 								<div className="mt-2">
 
-									<div className="h-full overflow-y-auto align-middle sm:flex flex-wrap min-w-full px-4 sm:px-6 md:px-6 py-4">
-										{clips?.sort((a, b) => a.aspect_ratio - b.aspect_ratio)
+									<div className="h-full overflow-y-auto align-middle md:flex flex-wrap min-w-full px-4 sm:px-6 md:px-6 py-4">
+										{/* {clips?.video.sort((a, b) => a.aspect_ratio - b.aspect_ratio)
 											.map((clip, i) => (
 												<div key={i} className="mx-auto sm:mx-0 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5 h-82 sm:pr-4 mb-4">
 													<div className="w-full text-sm text-center">Aspect Ratio: {clip.aspect_ratio}</div>
 													<PreviewClip videoUrl={clip.url} />
+												</div>
+											))} */}
+											{clips?.video.map((clip, i) => (
+												<div key={i} className="mx-auto sm:mx-0 w-full md:w-1/4 lg:w-1/5 h-82 sm:pr-4 mb-4">
+													<div className="w-full text-sm text-center">Aspect Ratio: {clip.aspect_ratio}</div>
+													<PreviewClip videoUrl={clip.url} image={clips.thumbnails[i].url} />
 												</div>
 											))}
 									</div>
