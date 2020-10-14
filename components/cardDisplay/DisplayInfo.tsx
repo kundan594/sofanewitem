@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import FormContainer from "../../containers/FormContainer";
-import TestForm  from "../../containers/FormTest";
+import TestForm from "../../containers/FormTest";
 
 f_config.autoAddCss = false;
 library.add(fas, fab);
@@ -18,10 +18,17 @@ const DisplayInfo = () => {
 	const [video, setVideo] = useState(null);
 	const inputRef = useRef(null);
 	const [isClips, setIsClips] = useState(false);
-	const [clips, setClips] = useState({video: null, thumbnails: null});
+	const [clips, setClips] = useState({ video: null, thumbnails: null });
 	const [isAddItem, setIsAddItem] = useState(false);
 
 	const [newsItem, setNewsItem] = useState(null);
+	const [paginationData, setPaginationData] = useState(
+		{
+			limit: 100,
+			last_id: "",
+			total_data: 0
+		}
+	);
 
 	useEffect(() => {
 		fetchData1();
@@ -54,7 +61,7 @@ const DisplayInfo = () => {
 		if (apiEndPoint == "Preview Clips") {
 			console.log(item.clips, "item====");
 			setIsClips(true);
-			setClips({video: item.clips, thumbnails: item.thumbnails});
+			setClips({ video: item.clips, thumbnails: item.thumbnails });
 			return false;
 		}
 		e.preventDefault();
@@ -75,9 +82,13 @@ const DisplayInfo = () => {
 	}
 
 	function fetchData1() {
-		let data = FetchDataService.getAll1()
+		let data = FetchDataService.getAll1(paginationData)
 			.then(response => {
 				setfetchData(response.data);
+				setPaginationData({
+					...paginationData,
+					total_data: response.data.total_items
+				});
 				// console.log(response.data,"response ");
 				console.log(response.data, "response.data.data");
 			})
@@ -177,7 +188,7 @@ const DisplayInfo = () => {
 				return (
 					<div className="flex space-x-2 items-center justify-center">
 						<span onClick={(e) => actionPerformed(item, "Preview Clips", e)} className="px-2 my-1 inline-flex text-xs leading-5 font-semibold rounded-full border border-blue-800 bg-blue-100 hover:bg-blue-200 text-blue-800 cursor-pointer">
-							{item.clips.length}. Clips
+							Preview Clips
 						</span>
 						<svg onClick={(e) => actionPerformed(item, "lead_video_editor_approve", e)} className="h-8 w-8 text-green-400 hover:text-green-600 cursor-pointer" x-description="Heroicon name: check-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
 							<path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
@@ -226,7 +237,7 @@ const DisplayInfo = () => {
 									{item.title}
 								</div>
 								<div className="flex ml-2 py-2">
-									{item.thumbnails.length > 0 &&(
+									{item.thumbnails.length > 0 && (
 										<img className="w-1/2 h-full" src={item.thumbnails[0].url} />
 									)}
 								</div>
@@ -308,7 +319,7 @@ const DisplayInfo = () => {
 								<div className="space-x-2 flex flex-wrap items-center">
 									{item.tags.length > 0 && (
 										<>
-											{item.tags.map((tag,i) => (
+											{item.tags.map((tag, i) => (
 												<span key={i} className="px-2 my-1 inline-flex text-xs leading-5 font-semibold rounded-full border border-green-800 bg-green-100 text-green-800 uppercase">
 													{tag}
 												</span>
@@ -353,7 +364,7 @@ const DisplayInfo = () => {
 						</span>
 						<span className="ml-3 shadow-sm rounded-md">
 							<button
-								onClick={() => {setIsAddItem(true)}}
+								onClick={() => { setIsAddItem(true) }}
 								type="button"
 								className="inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-blue-600 hover:bg-blue-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-700 active:bg-blue-700 transition duration-150 ease-in-out"
 							>
@@ -366,6 +377,29 @@ const DisplayInfo = () => {
 					<ul className="divide-y divide-gray-500">
 						{fetchDataInfo}
 					</ul>
+				</div>
+				<div className="w-full">
+					<nav className="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
+						<div className="hidden sm:block">
+							<p className="text-sm leading-5 text-gray-700">
+								Showing
+            					<span className="font-medium mx-1">1</span>
+								to
+								<span className="font-medium mx-1">{DataAll?.news_items.length}</span>
+								of
+								<span className="font-medium mx-1">{paginationData.total_data}</span>
+								results
+							</p>
+						</div>
+						<div className="flex-1 flex justify-between sm:justify-end">
+							<a href="#" className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
+								Previous
+        					</a>
+							<a href="#" className="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
+								Next
+        					</a>
+						</div>
+					</nav>
 				</div>
 			</div>
 			{isClips && (
@@ -395,12 +429,12 @@ const DisplayInfo = () => {
 													<PreviewClip videoUrl={clip.url} />
 												</div>
 											))} */}
-											{clips?.video.map((clip, i) => (
-												<div key={i} className="mx-auto sm:mx-0 w-full md:w-1/4 lg:w-1/5 h-82 sm:pr-4 mb-4">
-													<div className="w-full text-sm text-center">Aspect Ratio: {clip.aspect_ratio}</div>
-													<PreviewClip videoUrl={clip.url} image={clips.thumbnails[i].url} />
-												</div>
-											))}
+										{clips?.video.map((clip, i) => (
+											<div key={i} className="mx-auto sm:mx-0 w-full md:w-1/4 lg:w-1/5 h-82 sm:pr-4 mb-4">
+												<div className="w-full text-sm text-center">Aspect Ratio: {clip.aspect_ratio}</div>
+												<PreviewClip videoUrl={clip.url} image={clips.thumbnails[i].url} />
+											</div>
+										))}
 									</div>
 								</div>
 							</div>

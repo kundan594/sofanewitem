@@ -1,8 +1,8 @@
 import http from "../../plugin/http-common";
 
-class FetchDataService {	
+class FetchDataService {
 	getAll() {
-        return {
+		return {
 			"news_items": [
 				{
 					"id": "07119230-04bb-11eb-a2de-339725abdc4c",
@@ -54,13 +54,17 @@ class FetchDataService {
 
 			]
 		}
-	   //	return http.get("news_items?token=abcdef");
+		//	return http.get("news_items?token=abcdef");
 	}
 
-	getAll1() {    
-			return http.get("news_items?token=abcdef");
+	getAll1(paginationData) {
+		let url = `news_items?token=abcdef&limit=${paginationData.limit}`;
+		if (paginationData.last_id != "") {
+			url += `&last_id=${paginationData.last_id}`;
+		}
+		return http.get(url);
 	}
-		
+
 
 	get(id) {
 		return http.get(`/piece/${id}`);
@@ -72,15 +76,15 @@ class FetchDataService {
 		return http.post("/news_items/" + data.id + "/submit?token=abcdef", {});
 	}
 
-	processedData(data,apiCallEndPoint){
+	processedData(data, apiCallEndPoint) {
 		console.log(data, "servcie data");
 		//return false;
-		return http.post("/news_items/" + data.id + "/"+ apiCallEndPoint+"?token=abcdef", {});
+		return http.post("/news_items/" + data.id + "/" + apiCallEndPoint + "?token=abcdef", {});
 
 	}
-	newDataSave(data){
+	newDataSave(data) {
 		console.log(data, "  === data");
-		return http.post("/news_items?token=abcdef",data);
+		return http.post("/news_items?token=abcdef", data);
 	}
 
 	update(id, data) {
@@ -98,8 +102,8 @@ class FetchDataService {
 	findByTitle(title) {
 		return http.get(`/piece?title=${title}`);
 	}
-	uplaodVideo(item, apiEndPoint,data,config){
-		return http.post("/news_items/" + item.id + "/"+ apiEndPoint+"?token=abcdef", data, config);
+	uplaodVideo(item, apiEndPoint, data, config) {
+		return http.post("/news_items/" + item.id + "/" + apiEndPoint + "?token=abcdef", data, config);
 	}
 
 }
