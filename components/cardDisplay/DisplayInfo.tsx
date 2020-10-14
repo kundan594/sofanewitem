@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import FormContainer from "../../containers/FormContainer";
+import TestForm  from "../../containers/FormTest";
 
 f_config.autoAddCss = false;
 library.add(fas, fab);
@@ -425,7 +426,8 @@ const DisplayInfo = () => {
 									</div>
 								</div>
 								<div className="mt-2">
-									<FormContainer />
+									{/* <FormContainer /> */}
+									<TestForm />
 								</div>
 							</div>
 						</div>
