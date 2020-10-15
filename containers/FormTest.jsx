@@ -201,11 +201,17 @@ const TestForm = () => {
         )
 
         descriptionState.map((val, idx) => {
-            let dataInfo = { language: '', sentence1: '', sentence2: '', sentence3: '' };
+            let dataInfo = { language: '', sentences:[] };
             dataInfo.language = val.language;
-            dataInfo.sentence1 = val.sentence1;
-            dataInfo.sentence2 = val.sentence2;
-            dataInfo.sentence3 = val.sentence3;
+            if(val.sentence1 != ""){
+                dataInfo.sentences.push(val.sentence1);
+            }
+            if(val.sentence2 != ""){
+                dataInfo.sentences.push(val.sentence2);
+            }
+            if(val.sentence3 != ""){
+                dataInfo.sentences.push(val.sentence3);
+            }           
             descriptionArray.push(dataInfo);
 
         }
