@@ -71,7 +71,7 @@ const Demo = () => {
                                 <div className="w-full flex items-center px-4 bg-white rounded-lg">
                                     <div className="flex items-center w-full">
                                         <form className="sm:flex w-full" aria-labelledby="newsletter-headline">
-                                            <input aria-label="search box" type="text" required className="appearance-none w-full px-3 py-3 border border-gray-300 text-base leading-6 rounded-md text-gray-900 bg-white placeholder-gray-500 focus:outline-none focus:shadow-outline focus:border-blue-300 transition duration-150 ease-in-out sm:max-w-xs" placeholder="Search by title" />
+                                            <input aria-label="search box" type="text" required className="appearance-none w-full px-3 py-3 border border-gray-300 text-base leading-6 rounded-md text-gray-900 bg-gray-100 placeholder-gray-500 focus:outline-none focus:shadow-outline focus:border-blue-300 transition duration-150 ease-in-out sm:max-w-xs" placeholder="Search by title" />
                                             <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
                                                 <button className="w-full flex items-center justify-center px-12 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
                                                     Search
@@ -93,11 +93,25 @@ const Demo = () => {
                     <div className="flex flex-no-wrap justify-center">
                         <div className="w-4/5 mx-auto flex-none float-left">
                             <div className="md:flex shadow-lg mx-6 md:mx-auto w-full h-sm">
-                                <img className="h-full w-full md:w-1/6  object-cover rounded-lg rounded-r-none"
-                                    src="https://ik.imagekit.io/q5edmtudmz/FB_IMG_15658659197157667_wOd8n5yFyXI.jpg" alt="bag" />
-                                <div className="w-full md:w-5/6 px-4 py-4 bg-white rounded-lg border-r-8 border-green-400">
+                                <div className="w-full md:w-1/6 relative z-10">
+                                    <div className="absolute inset-x-0 top-0 transform translate-y-px">
+                                        <div className="flex justify-center transform translate-y-1/2">
+                                            <span className="bg-black bg-opacity-50 inline-flex w-full h-10 flex items-center justify-center text-center px-4 py-1 text-xs leading-5 font-semibold tracking-wider uppercase text-white">
+                                                Pushed To Feed
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <img className="h-full w-full object-cover rounded-lg rounded-r-none"
+                                        src="https://cdn.so.fa.dog/thumbnails-int/76c3923c-0f5f-11eb-8a82-01bf9fcdf51b.jpg_43.jpg" alt="bag" />
+                                </div>
+                                <div className="w-full md:w-5/6 px-4 py-2 bg-white rounded-r-lg border-r-8 border-green-400">
+                                    <div className="mb-4">
+                                        <div className="w-full flex justify-end">
+                                            <button className="px-2 py-1 bg-indigo-500 text-white rounded text-xs cursor-pointer">Remove Feed</button>
+                                        </div>
+                                    </div>
                                     <div className="flex items-center">
-                                        <h2 className="text-lg text-gray-800 font-medium mr-auto">Illustrations and Animations Designed for Hip Hop Digital artist Ali Graham directs Anderson Paak's new video clip 'Jewelz' in collaboration with Vans jewelz.m4a 73.2 KB Download *pls use the 'digital art' templateSource: IG: lil_ye Visuals: YT:Anderson Paak</h2>
+                                        <h2 className="text-base text-gray-800 font-medium mr-auto">Illustrations and Animations Designed for Hip Hop Digital artist Ali Graham directs Anderson Paak's new video clip 'Jewelz' in collaboration with Vans jewelz.m4a 73.2 KB Download *pls use the 'digital art' templateSource: IG: lil_ye Visuals: YT:Anderson Paak</h2>
                                     </div>
                                     <div>
                                         <div className="mt-2">
@@ -219,9 +233,18 @@ const Demo = () => {
                     <div className="flex flex-no-wrap justify-center">
                         <div className="w-4/5 mx-auto flex-none float-left">
                             <div className="md:flex shadow-lg mx-6 md:mx-auto w-full h-sm">
-                                <img className="h-full w-full md:w-1/6  object-cover rounded-lg rounded-r-none"
-                                    src="https://ik.imagekit.io/q5edmtudmz/FB_IMG_15658659197157667_wOd8n5yFyXI.jpg" alt="bag" />
-                                <div className="w-full md:w-5/6 px-4 py-4 bg-white rounded-lg border-r-8 border-purple-500">
+                                <div className="w-full md:w-1/6 relative z-10">
+                                    <div className="absolute inset-x-0 top-0 transform translate-y-px">
+                                        <div className="flex justify-center transform -translate-y-1/2">
+                                            <span className="bg-black bg-opacity-50 inline-flex w-24 h-24 flex items-center justify-center text-center rounded-full px-4 py-1 text-xs leading-5 font-semibold tracking-wider uppercase text-white">
+                                                Awaiting Video Upload
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <img className="h-full w-full object-cover rounded-lg rounded-r-none"
+                                        src="https://cdn.so.fa.dog/thumbnails-int/56cd1a02-0f55-11eb-a4b9-4fbce95ff178.jpg_43.jpg" alt="bag" />
+                                </div>
+                                <div className="w-full md:w-5/6 px-4 py-2 bg-white rounded-r-lg border-r-8 border-purple-500">
                                     <div className="flex items-center">
                                         <h2 className="text-lg text-gray-800 font-medium mr-auto">Snapchat Launches TikTok-Style Feature</h2>
 
@@ -319,6 +342,19 @@ const Demo = () => {
                                             </div>
                                         </div>
                                     </div>
+                                    <div>
+                                        <div className="w-full space-x-2 flex justify-end">
+                                            <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium leading-4 bg-blue-100 text-blue-800">
+                                                Local Estonian Content
+                                            </span>
+                                            <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium leading-4 bg-blue-100 text-blue-800">
+                                                NSFW
+                                            </span>
+                                            <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium leading-4 bg-blue-100 text-blue-800">
+                                                NSFL
+                                            </span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -337,9 +373,9 @@ const Demo = () => {
                     <div className="flex flex-no-wrap justify-center">
                         <div className="w-4/5 mx-auto flex-none float-left">
                             <div className="md:flex shadow-lg mx-6 md:mx-auto w-full h-sm">
-                                <img className="h-full w-full md:w-1/5  object-cover rounded-lg rounded-r-none"
+                                <img className="h-full w-full md:w-1/6  object-cover rounded-lg rounded-r-none"
                                     src="https://ik.imagekit.io/q5edmtudmz/FB_IMG_15658659197157667_wOd8n5yFyXI.jpg" alt="bag" />
-                                <div className="w-full md:w-4/5 px-4 py-4 bg-white rounded-lg">
+                                <div className="w-full md:w-5/6 px-4 py-4 bg-white rounded-lg">
                                     <div className="flex items-center">
                                         <h2 className="text-xl text-gray-800 font-medium mr-auto">Your Travel Buddy</h2>
 
