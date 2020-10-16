@@ -8,7 +8,8 @@ module.exports = {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
 	  },
 	  height: {
-		sm: "20rem"
+		xs: "20rem",
+		sm: "24rem"
 	  }
     },
   },

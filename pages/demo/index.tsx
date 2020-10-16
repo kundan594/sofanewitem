@@ -25,11 +25,11 @@ const Demo = () => {
                                 <img className="hidden lg:block h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-logo-on-dark.svg" alt="Workflow logo" />
                             </div>
                             <div className="hidden md:ml-6 md:flex md:items-center">
-                                
+
                             </div>
                         </div>
                         <div className="flex items-center">
-                            
+
                         </div>
                     </div>
                 </div>
@@ -68,13 +68,17 @@ const Demo = () => {
                     <div className="flex flex-no-wrap justify-center">
                         <div className="w-2/5 mx-auto flex-none float-left">
                             <div className="md:flex shadow-lg mx-6 md:mx-auto w-full h-16">
-                                <div className="w-full px-4 py-4 bg-white rounded-lg">
-                                    <div className="flex items-center">
-                                        <h2 className="text-xl text-gray-800 font-medium mr-auto">Your Travel Buddy</h2>
+                                <div className="w-full flex items-center px-4 bg-white rounded-lg">
+                                    <div className="flex items-center w-full">
+                                        <form className="sm:flex w-full" aria-labelledby="newsletter-headline">
+                                            <input aria-label="search box" type="text" required className="appearance-none w-full px-3 py-3 border border-gray-300 text-base leading-6 rounded-md text-gray-900 bg-white placeholder-gray-500 focus:outline-none focus:shadow-outline focus:border-blue-300 transition duration-150 ease-in-out sm:max-w-xs" placeholder="Search by title" />
+                                            <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
+                                                <button className="w-full flex items-center justify-center px-12 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
+                                                    Search
+                                                </button>
+                                            </div>
+                                        </form>
                                     </div>
-                                    <p className="text-sm text-gray-700 mt-4">
-
-                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -91,14 +95,116 @@ const Demo = () => {
                             <div className="md:flex shadow-lg mx-6 md:mx-auto w-full h-sm">
                                 <img className="h-full w-full md:w-1/6  object-cover rounded-lg rounded-r-none"
                                     src="https://ik.imagekit.io/q5edmtudmz/FB_IMG_15658659197157667_wOd8n5yFyXI.jpg" alt="bag" />
-                                <div className="w-full md:w-5/6 px-4 py-4 bg-white rounded-lg">
+                                <div className="w-full md:w-5/6 px-4 py-4 bg-white rounded-lg border-r-8 border-green-400">
                                     <div className="flex items-center">
-                                        <h2 className="text-xl text-gray-800 font-medium mr-auto">Your Travel Buddy</h2>
-
+                                        <h2 className="text-lg text-gray-800 font-medium mr-auto">Illustrations and Animations Designed for Hip Hop Digital artist Ali Graham directs Anderson Paak's new video clip 'Jewelz' in collaboration with Vans jewelz.m4a 73.2 KB Download *pls use the 'digital art' templateSource: IG: lil_ye Visuals: YT:Anderson Paak</h2>
                                     </div>
-                                    <p className="text-sm text-gray-700 mt-4">
+                                    <div>
+                                        <div className="mt-2">
+                                            <h3 className="px-3 text-xs leading-4 font-semibold text-gray-500 uppercase tracking-wider" id="teams-headline">
+                                                Description
+                                            </h3>
+                                            <div className="mt-1" role="group" aria-labelledby="teams-headline">
 
-                                    </p>
+                                                <a href="#" className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
+                                                    <span className="w-2.5 h-2.5 mr-4 bg-indigo-500 rounded-full"></span>
+                                                    <span className="truncate">
+                                                        Engineering
+                                                    </span>
+                                                </a>
+
+                                                <a href="#" className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
+                                                    <span className="w-2.5 h-2.5 mr-4 bg-teal-400 rounded-full"></span>
+                                                    <span className="truncate">
+                                                        Human Resources
+                                                    </span>
+                                                </a>
+
+                                                <a href="#" className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
+                                                    <span className="w-2.5 h-2.5 mr-4 bg-orange-500 rounded-full"></span>
+                                                    <span className="truncate">
+                                                        Customer Success
+                                                    </span>
+                                                </a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div className="mt-2">
+                                            <h3 className="px-3 text-xs leading-4 font-semibold text-gray-500 uppercase tracking-wider" id="teams-headline">
+                                                News Credits
+                                            </h3>
+                                            <div className="mt-1" role="group" aria-labelledby="teams-headline">
+
+                                                <a href="#" className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
+                                                    <span className="w-2.5 h-2.5 mr-4 bg-indigo-500 rounded-full"></span>
+                                                    <span className="truncate">
+                                                        Engineering
+                                                    </span>
+                                                </a>
+
+                                                <a href="#" className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
+                                                    <span className="w-2.5 h-2.5 mr-4 bg-teal-400 rounded-full"></span>
+                                                    <span className="truncate">
+                                                        Human Resources
+                                                    </span>
+                                                </a>
+
+                                                <a href="#" className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
+                                                    <span className="w-2.5 h-2.5 mr-4 bg-orange-500 rounded-full"></span>
+                                                    <span className="truncate">
+                                                        Customer Success
+                                                    </span>
+                                                </a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div className="mt-2">
+                                            <h3 className="px-3 text-xs leading-4 font-semibold text-gray-500 uppercase tracking-wider" id="teams-headline">
+                                                Visual Credits
+                                            </h3>
+                                            <div className="mt-1" role="group" aria-labelledby="teams-headline">
+
+                                                <a href="#" className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
+                                                    <span className="w-2.5 h-2.5 mr-4 bg-indigo-500 rounded-full"></span>
+                                                    <span className="truncate">
+                                                        Engineering
+                                                    </span>
+                                                </a>
+
+                                                <a href="#" className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
+                                                    <span className="w-2.5 h-2.5 mr-4 bg-teal-400 rounded-full"></span>
+                                                    <span className="truncate">
+                                                        Human Resources
+                                                    </span>
+                                                </a>
+
+                                                <a href="#" className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
+                                                    <span className="w-2.5 h-2.5 mr-4 bg-orange-500 rounded-full"></span>
+                                                    <span className="truncate">
+                                                        Customer Success
+                                                    </span>
+                                                </a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div className="w-full space-x-2 flex justify-end">
+                                            <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium leading-4 bg-blue-100 text-blue-800">
+                                                Local Estonian Content
+                                            </span>
+                                            <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium leading-4 bg-blue-100 text-blue-800">
+                                                NSFW
+                                            </span>
+                                            <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium leading-4 bg-blue-100 text-blue-800">
+                                                NSFL
+                                            </span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -113,19 +219,106 @@ const Demo = () => {
                     <div className="flex flex-no-wrap justify-center">
                         <div className="w-4/5 mx-auto flex-none float-left">
                             <div className="md:flex shadow-lg mx-6 md:mx-auto w-full h-sm">
-                                <img className="h-full w-full md:w-1/5  object-cover rounded-lg rounded-r-none"
+                                <img className="h-full w-full md:w-1/6  object-cover rounded-lg rounded-r-none"
                                     src="https://ik.imagekit.io/q5edmtudmz/FB_IMG_15658659197157667_wOd8n5yFyXI.jpg" alt="bag" />
-                                <div className="w-full md:w-4/5 px-4 py-4 bg-white rounded-lg">
+                                <div className="w-full md:w-5/6 px-4 py-4 bg-white rounded-lg border-r-8 border-purple-500">
                                     <div className="flex items-center">
-                                        <h2 className="text-xl text-gray-800 font-medium mr-auto">Your Travel Buddy</h2>
+                                        <h2 className="text-lg text-gray-800 font-medium mr-auto">Snapchat Launches TikTok-Style Feature</h2>
 
                                     </div>
-                                    <p className="text-sm text-gray-700 mt-4">
-                                        Lorem, ipsum dolor sit amet consectetur Amet veritatis ipsam reiciendis numquam tempore
-                                        commodi ipsa suscipit laboriosam, sit earum at sequ adipisicing elit. Amet veritatis
-                                        ipsam
-                                        reiciendis numquam tempore commodi ipsa suscipit laboriosam, sit earum at sequi.
-                                    </p>
+                                    <div>
+                                        <div className="mt-2">
+                                            <h3 className="px-3 text-xs leading-4 font-semibold text-gray-500 uppercase tracking-wider" id="teams-headline">
+                                                Description
+                                            </h3>
+                                            <div className="mt-1" role="group" aria-labelledby="teams-headline">
+
+                                                <a href="#" className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
+                                                    <span className="w-2.5 h-2.5 mr-4 bg-indigo-500 rounded-full"></span>
+                                                    <span className="truncate">
+                                                        Engineering
+                                                    </span>
+                                                </a>
+
+                                                <a href="#" className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
+                                                    <span className="w-2.5 h-2.5 mr-4 bg-teal-400 rounded-full"></span>
+                                                    <span className="truncate">
+                                                        Human Resources
+                                                    </span>
+                                                </a>
+
+                                                <a href="#" className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
+                                                    <span className="w-2.5 h-2.5 mr-4 bg-orange-500 rounded-full"></span>
+                                                    <span className="truncate">
+                                                        Customer Success
+                                                    </span>
+                                                </a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div className="mt-2">
+                                            <h3 className="px-3 text-xs leading-4 font-semibold text-gray-500 uppercase tracking-wider" id="teams-headline">
+                                                News Credits
+                                            </h3>
+                                            <div className="mt-1" role="group" aria-labelledby="teams-headline">
+
+                                                <a href="#" className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
+                                                    <span className="w-2.5 h-2.5 mr-4 bg-indigo-500 rounded-full"></span>
+                                                    <span className="truncate">
+                                                        Engineering
+                                                    </span>
+                                                </a>
+
+                                                <a href="#" className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
+                                                    <span className="w-2.5 h-2.5 mr-4 bg-teal-400 rounded-full"></span>
+                                                    <span className="truncate">
+                                                        Human Resources
+                                                    </span>
+                                                </a>
+
+                                                <a href="#" className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
+                                                    <span className="w-2.5 h-2.5 mr-4 bg-orange-500 rounded-full"></span>
+                                                    <span className="truncate">
+                                                        Customer Success
+                                                    </span>
+                                                </a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div className="mt-2">
+                                            <h3 className="px-3 text-xs leading-4 font-semibold text-gray-500 uppercase tracking-wider" id="teams-headline">
+                                                Visual Credits
+                                            </h3>
+                                            <div className="mt-1" role="group" aria-labelledby="teams-headline">
+
+                                                <a href="#" className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
+                                                    <span className="w-2.5 h-2.5 mr-4 bg-indigo-500 rounded-full"></span>
+                                                    <span className="truncate">
+                                                        Engineering
+                                                    </span>
+                                                </a>
+
+                                                <a href="#" className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
+                                                    <span className="w-2.5 h-2.5 mr-4 bg-teal-400 rounded-full"></span>
+                                                    <span className="truncate">
+                                                        Human Resources
+                                                    </span>
+                                                </a>
+
+                                                <a href="#" className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
+                                                    <span className="w-2.5 h-2.5 mr-4 bg-orange-500 rounded-full"></span>
+                                                    <span className="truncate">
+                                                        Customer Success
+                                                    </span>
+                                                </a>
+
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
