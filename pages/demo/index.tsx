@@ -62,7 +62,7 @@ const Demo = () => {
                 <div className="w-full mx-auto">
                     <div className="flex flex-no-wrap justify-center">
                         <div className="w-1/12 mx-auto flex-none float-left">
-                            <div className="bg-indigo-400 p-1 h-16 w-1 mx-auto"></div>
+                            <div className="bg-purple-700 p-1 h-16 w-1 mx-auto"></div>
                         </div>
                     </div>
                     <div className="flex flex-no-wrap justify-center">
@@ -87,126 +87,108 @@ const Demo = () => {
                 <div className="w-full mx-auto">
                     <div className="flex flex-no-wrap justify-center">
                         <div className="w-1/12 mx-auto flex-none float-left">
-                            <div className="bg-indigo-400 p-1 h-32 w-1 mx-auto"></div>
+                            <div className="bg-purple-700 p-1 h-32 w-1 mx-auto"></div>
                         </div>
                     </div>
                     <div className="flex flex-no-wrap justify-center">
-                        <div className="w-4/5 mx-auto flex-none float-left">
-                            <div className="md:flex shadow-lg mx-6 md:mx-auto w-full h-sm">
-                                <div className="w-full md:w-1/6 relative z-10">
+                        <div className="w-11/12 mx-auto flex-none float-left">
+                            <div className="md:flex shadow-lg mx-6 md:mx-auto w-full h-xl">
+                                <div className="w-full md:w-1/5 relative z-10">
                                     <div className="absolute inset-x-0 top-0 transform translate-y-px">
                                         <div className="flex justify-center transform translate-y-1/2">
-                                            <span className="bg-black bg-opacity-50 inline-flex w-full h-10 flex items-center justify-center text-center px-4 py-1 text-xs leading-5 font-semibold tracking-wider uppercase text-white">
+                                            <span className="bg-green-400 inline-flex w-full h-10 flex items-center justify-center text-center px-4 py-1 text-xs leading-5 font-semibold tracking-wider uppercase text-white">
                                                 Pushed To Feed
                                             </span>
                                         </div>
                                     </div>
-                                    <img className="h-full w-full object-cover rounded-lg rounded-r-none"
-                                        src="https://cdn.so.fa.dog/thumbnails-int/76c3923c-0f5f-11eb-8a82-01bf9fcdf51b.jpg_43.jpg" alt="bag" />
+                                    <div className="h-full w-full bg-green-400 rounded-lg rounded-r-none flex items-start">
+                                        <img className="h-auto w-full shadow-2xl rounded-lg rounded-r-none rounded-b-none"
+                                            src="https://cdn.so.fa.dog/thumbnails-int/76c3923c-0f5f-11eb-8a82-01bf9fcdf51b.jpg_43.jpg" alt="bag" />
+                                    </div>
+
                                 </div>
-                                <div className="w-full md:w-5/6 px-4 py-2 bg-white rounded-r-lg border-r-8 border-green-400">
+                                <div className="relative w-full h-full md:w-4/5 px-4 py-2 bg-white rounded-r-lg border-r-8 border-green-400">
                                     <div className="mb-4">
                                         <div className="w-full flex justify-end">
-                                            <button className="px-2 py-1 bg-indigo-500 text-white rounded text-xs cursor-pointer">Remove Feed</button>
+                                            <button className="px-2 py-1 bg-red-500 text-white rounded text-xs cursor-pointer">Remove Feed</button>
                                         </div>
                                     </div>
-                                    <div className="flex items-center">
+                                    <div className="flex items-center mb-4">
                                         <h2 className="text-base text-gray-800 font-medium mr-auto">Illustrations and Animations Designed for Hip Hop Digital artist Ali Graham directs Anderson Paak's new video clip 'Jewelz' in collaboration with Vans jewelz.m4a 73.2 KB Download *pls use the 'digital art' templateSource: IG: lil_ye Visuals: YT:Anderson Paak</h2>
                                     </div>
-                                    <div>
-                                        <div className="mt-2">
-                                            <h3 className="px-3 text-xs leading-4 font-semibold text-gray-500 uppercase tracking-wider" id="teams-headline">
-                                                Description
-                                            </h3>
-                                            <div className="mt-1" role="group" aria-labelledby="teams-headline">
-
-                                                <a href="#" className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
-                                                    <span className="w-2.5 h-2.5 mr-4 bg-indigo-500 rounded-full"></span>
-                                                    <span className="truncate">
-                                                        Engineering
-                                                    </span>
-                                                </a>
-
-                                                <a href="#" className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
-                                                    <span className="w-2.5 h-2.5 mr-4 bg-teal-400 rounded-full"></span>
-                                                    <span className="truncate">
-                                                        Human Resources
-                                                    </span>
-                                                </a>
-
-                                                <a href="#" className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
-                                                    <span className="w-2.5 h-2.5 mr-4 bg-orange-500 rounded-full"></span>
-                                                    <span className="truncate">
-                                                        Customer Success
-                                                    </span>
-                                                </a>
-
+                                    <div className="w-full mb-4">
+                                        <div className="p-4 shadow rounded border border-gray-300">
+                                            <div className="block">
+                                                <div className="border-b border-gray-200">
+                                                    <nav className="flex -mb-px">
+                                                        <a href="#" className="ml-8 group inline-flex items-center py-4 px-1 border-b-2 border-indigo-500 font-medium text-sm leading-5 text-indigo-600 focus:outline-none focus:text-indigo-800 focus:border-indigo-700" aria-current="page">
+                                                            <span>English</span>
+                                                        </a>
+                                                        <a href="#" className="ml-8 group inline-flex items-center py-4 px-1 border-b-2 border-transparent font-medium text-sm leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300">
+                                                            <span>Estonian</span>
+                                                        </a>
+                                                    </nav>
+                                                </div>
+                                                <div className="mt-4" role="group" aria-labelledby="teams-headline">
+                                                    <div className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
+                                                        <span className="w-2.5 h-2.5 mr-4 bg-indigo-500 rounded-full"></span>
+                                                        <span className="truncate">
+                                                            Engineering
+                                                        </span>
+                                                    </div>
+                                                    <div className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
+                                                        <span className="w-2.5 h-2.5 mr-4 bg-indigo-500 rounded-full"></span>
+                                                        <span className="truncate">
+                                                            Engineering
+                                                        </span>
+                                                    </div>
+                                                    <div className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
+                                                        <span className="w-2.5 h-2.5 mr-4 bg-indigo-500 rounded-full"></span>
+                                                        <span className="truncate">
+                                                            Engineering
+                                                        </span>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div>
-                                        <div className="mt-2">
-                                            <h3 className="px-3 text-xs leading-4 font-semibold text-gray-500 uppercase tracking-wider" id="teams-headline">
-                                                News Credits
-                                            </h3>
-                                            <div className="mt-1" role="group" aria-labelledby="teams-headline">
-
-                                                <a href="#" className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
-                                                    <span className="w-2.5 h-2.5 mr-4 bg-indigo-500 rounded-full"></span>
-                                                    <span className="truncate">
-                                                        Engineering
-                                                    </span>
-                                                </a>
-
-                                                <a href="#" className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
-                                                    <span className="w-2.5 h-2.5 mr-4 bg-teal-400 rounded-full"></span>
-                                                    <span className="truncate">
-                                                        Human Resources
-                                                    </span>
-                                                </a>
-
-                                                <a href="#" className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
-                                                    <span className="w-2.5 h-2.5 mr-4 bg-orange-500 rounded-full"></span>
-                                                    <span className="truncate">
-                                                        Customer Success
-                                                    </span>
-                                                </a>
-
+                                    <div className="w-full">
+                                        <div className="p-4 shadow rounded border border-gray-300">
+                                            <div className="block">
+                                                <div className="border-b border-gray-200">
+                                                    <nav className="flex -mb-px">
+                                                        <a href="#" className="ml-8 group inline-flex items-center py-4 px-1 border-b-2 border-indigo-500 font-medium text-sm leading-5 text-indigo-600 focus:outline-none focus:text-indigo-800 focus:border-indigo-700" aria-current="page">
+                                                            <span>News Credits</span>
+                                                        </a>
+                                                        <a href="#" className="ml-8 group inline-flex items-center py-4 px-1 border-b-2 border-transparent font-medium text-sm leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300">
+                                                            <span>Visual Credits</span>
+                                                        </a>
+                                                    </nav>
+                                                </div>
+                                                <div className="mt-4" role="group" aria-labelledby="teams-headline">
+                                                    <div className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
+                                                        <span className="w-2.5 h-2.5 mr-4 bg-indigo-500 rounded-full"></span>
+                                                        <span className="truncate">
+                                                            Engineering
+                                                        </span>
+                                                    </div>
+                                                    <div className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
+                                                        <span className="w-2.5 h-2.5 mr-4 bg-indigo-500 rounded-full"></span>
+                                                        <span className="truncate">
+                                                            Engineering
+                                                        </span>
+                                                    </div>
+                                                    <div className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
+                                                        <span className="w-2.5 h-2.5 mr-4 bg-indigo-500 rounded-full"></span>
+                                                        <span className="truncate">
+                                                            Engineering
+                                                        </span>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div>
-                                        <div className="mt-2">
-                                            <h3 className="px-3 text-xs leading-4 font-semibold text-gray-500 uppercase tracking-wider" id="teams-headline">
-                                                Visual Credits
-                                            </h3>
-                                            <div className="mt-1" role="group" aria-labelledby="teams-headline">
-
-                                                <a href="#" className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
-                                                    <span className="w-2.5 h-2.5 mr-4 bg-indigo-500 rounded-full"></span>
-                                                    <span className="truncate">
-                                                        Engineering
-                                                    </span>
-                                                </a>
-
-                                                <a href="#" className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
-                                                    <span className="w-2.5 h-2.5 mr-4 bg-teal-400 rounded-full"></span>
-                                                    <span className="truncate">
-                                                        Human Resources
-                                                    </span>
-                                                </a>
-
-                                                <a href="#" className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
-                                                    <span className="w-2.5 h-2.5 mr-4 bg-orange-500 rounded-full"></span>
-                                                    <span className="truncate">
-                                                        Customer Success
-                                                    </span>
-                                                </a>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
+                                    <div className="absolute mb-4 mr-4 bottom-0 inset-x-0">
                                         <div className="w-full space-x-2 flex justify-end">
                                             <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium leading-4 bg-blue-100 text-blue-800">
                                                 Local Estonian Content
@@ -227,122 +209,108 @@ const Demo = () => {
                 <div className="w-full mx-auto">
                     <div className="flex flex-no-wrap justify-center">
                         <div className="w-1/12 mx-auto flex-none float-left">
-                            <div className="bg-indigo-400 p-1 h-32 w-1 mx-auto"></div>
+                            <div className="bg-purple-700 p-1 h-32 w-1 mx-auto"></div>
                         </div>
                     </div>
                     <div className="flex flex-no-wrap justify-center">
-                        <div className="w-4/5 mx-auto flex-none float-left">
-                            <div className="md:flex shadow-lg mx-6 md:mx-auto w-full h-sm">
-                                <div className="w-full md:w-1/6 relative z-10">
+                        <div className="w-11/12 mx-auto flex-none float-left">
+                            <div className="md:flex shadow-lg mx-6 md:mx-auto w-full h-xl">
+                                <div className="w-full md:w-1/5 relative z-10">
                                     <div className="absolute inset-x-0 top-0 transform translate-y-px">
-                                        <div className="flex justify-center transform -translate-y-1/2">
-                                            <span className="bg-black bg-opacity-50 inline-flex w-24 h-24 flex items-center justify-center text-center rounded-full px-4 py-1 text-xs leading-5 font-semibold tracking-wider uppercase text-white">
-                                                Awaiting Video Upload
+                                        <div className="flex justify-center transform translate-y-1/2">
+                                            <span className="bg-red-400 inline-flex w-full h-10 flex items-center justify-center text-center px-4 py-1 text-xs leading-5 font-semibold tracking-wider uppercase text-white">
+                                                Pushed To Feed
                                             </span>
                                         </div>
                                     </div>
-                                    <img className="h-full w-full object-cover rounded-lg rounded-r-none"
-                                        src="https://cdn.so.fa.dog/thumbnails-int/56cd1a02-0f55-11eb-a4b9-4fbce95ff178.jpg_43.jpg" alt="bag" />
+                                    <div className="h-full w-full bg-red-400 rounded-lg rounded-r-none flex items-start">
+                                        <img className="h-auto w-full shadow-2xl rounded-lg rounded-r-none rounded-b-none"
+                                            src="https://cdn.so.fa.dog/thumbnails-int/76c3923c-0f5f-11eb-8a82-01bf9fcdf51b.jpg_43.jpg" alt="bag" />
+                                    </div>
+
                                 </div>
-                                <div className="w-full md:w-5/6 px-4 py-2 bg-white rounded-r-lg border-r-8 border-purple-500">
-                                    <div className="flex items-center">
-                                        <h2 className="text-lg text-gray-800 font-medium mr-auto">Snapchat Launches TikTok-Style Feature</h2>
-
+                                <div className="relative w-full h-full md:w-4/5 px-4 py-2 bg-white rounded-r-lg border-r-8 border-red-400">
+                                    <div className="mb-4">
+                                        <div className="w-full flex justify-end">
+                                            <button className="px-2 py-1 bg-red-500 text-white rounded text-xs cursor-pointer">Remove Feed</button>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <div className="mt-2">
-                                            <h3 className="px-3 text-xs leading-4 font-semibold text-gray-500 uppercase tracking-wider" id="teams-headline">
-                                                Description
-                                            </h3>
-                                            <div className="mt-1" role="group" aria-labelledby="teams-headline">
-
-                                                <a href="#" className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
-                                                    <span className="w-2.5 h-2.5 mr-4 bg-indigo-500 rounded-full"></span>
-                                                    <span className="truncate">
-                                                        Engineering
-                                                    </span>
-                                                </a>
-
-                                                <a href="#" className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
-                                                    <span className="w-2.5 h-2.5 mr-4 bg-teal-400 rounded-full"></span>
-                                                    <span className="truncate">
-                                                        Human Resources
-                                                    </span>
-                                                </a>
-
-                                                <a href="#" className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
-                                                    <span className="w-2.5 h-2.5 mr-4 bg-orange-500 rounded-full"></span>
-                                                    <span className="truncate">
-                                                        Customer Success
-                                                    </span>
-                                                </a>
-
+                                    <div className="flex items-center mb-4">
+                                        <h2 className="text-base text-gray-800 font-medium mr-auto">Illustrations and Animations Designed for Hip Hop Digital artist Ali Graham directs Anderson Paak's new video clip 'Jewelz' in collaboration with Vans jewelz.m4a 73.2 KB Download *pls use the 'digital art' templateSource: IG: lil_ye Visuals: YT:Anderson Paak</h2>
+                                    </div>
+                                    <div className="w-full mb-4">
+                                        <div className="p-4 shadow rounded border border-gray-300">
+                                            <div className="block">
+                                                <div className="border-b border-gray-200">
+                                                    <nav className="flex -mb-px">
+                                                        <a href="#" className="ml-8 group inline-flex items-center py-4 px-1 border-b-2 border-indigo-500 font-medium text-sm leading-5 text-indigo-600 focus:outline-none focus:text-indigo-800 focus:border-indigo-700" aria-current="page">
+                                                            <span>English</span>
+                                                        </a>
+                                                        <a href="#" className="ml-8 group inline-flex items-center py-4 px-1 border-b-2 border-transparent font-medium text-sm leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300">
+                                                            <span>Estonian</span>
+                                                        </a>
+                                                    </nav>
+                                                </div>
+                                                <div className="mt-4" role="group" aria-labelledby="teams-headline">
+                                                    <div className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
+                                                        <span className="w-2.5 h-2.5 mr-4 bg-indigo-500 rounded-full"></span>
+                                                        <span className="truncate">
+                                                            Engineering
+                                                        </span>
+                                                    </div>
+                                                    <div className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
+                                                        <span className="w-2.5 h-2.5 mr-4 bg-indigo-500 rounded-full"></span>
+                                                        <span className="truncate">
+                                                            Engineering
+                                                        </span>
+                                                    </div>
+                                                    <div className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
+                                                        <span className="w-2.5 h-2.5 mr-4 bg-indigo-500 rounded-full"></span>
+                                                        <span className="truncate">
+                                                            Engineering
+                                                        </span>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div>
-                                        <div className="mt-2">
-                                            <h3 className="px-3 text-xs leading-4 font-semibold text-gray-500 uppercase tracking-wider" id="teams-headline">
-                                                News Credits
-                                            </h3>
-                                            <div className="mt-1" role="group" aria-labelledby="teams-headline">
-
-                                                <a href="#" className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
-                                                    <span className="w-2.5 h-2.5 mr-4 bg-indigo-500 rounded-full"></span>
-                                                    <span className="truncate">
-                                                        Engineering
-                                                    </span>
-                                                </a>
-
-                                                <a href="#" className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
-                                                    <span className="w-2.5 h-2.5 mr-4 bg-teal-400 rounded-full"></span>
-                                                    <span className="truncate">
-                                                        Human Resources
-                                                    </span>
-                                                </a>
-
-                                                <a href="#" className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
-                                                    <span className="w-2.5 h-2.5 mr-4 bg-orange-500 rounded-full"></span>
-                                                    <span className="truncate">
-                                                        Customer Success
-                                                    </span>
-                                                </a>
-
+                                    <div className="w-full">
+                                        <div className="p-4 shadow rounded border border-gray-300">
+                                            <div className="block">
+                                                <div className="border-b border-gray-200">
+                                                    <nav className="flex -mb-px">
+                                                        <a href="#" className="ml-8 group inline-flex items-center py-4 px-1 border-b-2 border-indigo-500 font-medium text-sm leading-5 text-indigo-600 focus:outline-none focus:text-indigo-800 focus:border-indigo-700" aria-current="page">
+                                                            <span>News Credits</span>
+                                                        </a>
+                                                        <a href="#" className="ml-8 group inline-flex items-center py-4 px-1 border-b-2 border-transparent font-medium text-sm leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300">
+                                                            <span>Visual Credits</span>
+                                                        </a>
+                                                    </nav>
+                                                </div>
+                                                <div className="mt-4" role="group" aria-labelledby="teams-headline">
+                                                    <div className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
+                                                        <span className="w-2.5 h-2.5 mr-4 bg-indigo-500 rounded-full"></span>
+                                                        <span className="truncate">
+                                                            Engineering
+                                                        </span>
+                                                    </div>
+                                                    <div className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
+                                                        <span className="w-2.5 h-2.5 mr-4 bg-indigo-500 rounded-full"></span>
+                                                        <span className="truncate">
+                                                            Engineering
+                                                        </span>
+                                                    </div>
+                                                    <div className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
+                                                        <span className="w-2.5 h-2.5 mr-4 bg-indigo-500 rounded-full"></span>
+                                                        <span className="truncate">
+                                                            Engineering
+                                                        </span>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div>
-                                        <div className="mt-2">
-                                            <h3 className="px-3 text-xs leading-4 font-semibold text-gray-500 uppercase tracking-wider" id="teams-headline">
-                                                Visual Credits
-                                            </h3>
-                                            <div className="mt-1" role="group" aria-labelledby="teams-headline">
-
-                                                <a href="#" className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
-                                                    <span className="w-2.5 h-2.5 mr-4 bg-indigo-500 rounded-full"></span>
-                                                    <span className="truncate">
-                                                        Engineering
-                                                    </span>
-                                                </a>
-
-                                                <a href="#" className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
-                                                    <span className="w-2.5 h-2.5 mr-4 bg-teal-400 rounded-full"></span>
-                                                    <span className="truncate">
-                                                        Human Resources
-                                                    </span>
-                                                </a>
-
-                                                <a href="#" className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
-                                                    <span className="w-2.5 h-2.5 mr-4 bg-orange-500 rounded-full"></span>
-                                                    <span className="truncate">
-                                                        Customer Success
-                                                    </span>
-                                                </a>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
+                                    <div className="absolute mb-4 mr-4 bottom-0 inset-x-0">
                                         <div className="w-full space-x-2 flex justify-end">
                                             <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium leading-4 bg-blue-100 text-blue-800">
                                                 Local Estonian Content
@@ -363,36 +331,134 @@ const Demo = () => {
                 <div className="w-full mx-auto">
                     <div className="flex flex-no-wrap justify-center">
                         <div className="w-1/12 mx-auto flex-none float-left">
-                            <div className="bg-indigo-400 p-1 h-40 w-1 mx-auto">
-                                {/* <button
-                                    className="h-20 w-20 my-10 bg-indigo-400 hover:bg-indigo-600 text-white font-bold rounded-full -ml-10">Day
-                                #2</button> */}
-                            </div>
+                            <div className="bg-purple-700 p-1 h-32 w-1 mx-auto"></div>
                         </div>
                     </div>
                     <div className="flex flex-no-wrap justify-center">
-                        <div className="w-4/5 mx-auto flex-none float-left">
-                            <div className="md:flex shadow-lg mx-6 md:mx-auto w-full h-sm">
-                                <img className="h-full w-full md:w-1/6  object-cover rounded-lg rounded-r-none"
-                                    src="https://ik.imagekit.io/q5edmtudmz/FB_IMG_15658659197157667_wOd8n5yFyXI.jpg" alt="bag" />
-                                <div className="w-full md:w-5/6 px-4 py-4 bg-white rounded-lg">
-                                    <div className="flex items-center">
-                                        <h2 className="text-xl text-gray-800 font-medium mr-auto">Your Travel Buddy</h2>
-
+                        <div className="w-11/12 mx-auto flex-none float-left">
+                            <div className="md:flex shadow-lg mx-6 md:mx-auto w-full h-xl">
+                                <div className="w-full md:w-1/5 relative z-10">
+                                    <div className="absolute inset-x-0 top-0 transform translate-y-px">
+                                        <div className="flex justify-center transform translate-y-1/2">
+                                            <span className="bg-red-400 inline-flex w-full h-10 flex items-center justify-center text-center px-4 py-1 text-xs leading-5 font-semibold tracking-wider uppercase text-white shadow-lg">
+                                                Pushed To Feed
+                                            </span>
+                                        </div>
                                     </div>
-                                    <p className="text-sm text-gray-700 mt-4">
-                                        Lorem, ipsum dolor sit amet consectetur Amet veritatis ipsam reiciendis numquam tempore
-                                        commodi ipsa suscipit laboriosam, sit earum at sequ adipisicing elit. Amet veritatis
-                                        ipsam
-                                        reiciendis numquam tempore commodi ipsa suscipit laboriosam, sit earum at sequi.
-                                    </p>
+                                    <div className="h-full w-full bg-red-400 rounded-lg rounded-r-none flex items-start">
+                                        <img className="h-auto w-full shadow-2xl rounded-lg rounded-r-none rounded-b-none"
+                                            src="https://cdn.so.fa.dog/thumbnails-int/76c3923c-0f5f-11eb-8a82-01bf9fcdf51b.jpg_43.jpg" alt="bag" />
+                                    </div>
+
+                                </div>
+                                <div className="relative w-full h-full md:w-4/5 px-4 py-2 bg-white rounded-r-lg border-r-8 border-red-400">
+                                    <div className="py-2">
+                                        <div className="w-full flex justify-end">
+                                            <button className="px-2 py-1 bg-red-500 text-white rounded text-xs cursor-pointer">Remove Feed</button>
+                                        </div>
+                                    </div>
+                                    <div className="flex items-center mb-4">
+                                        <div className="w-full">
+                                            <label htmlFor="about" className="block text-sm font-medium leading-5 text-gray-700">
+                                                Title
+                                            </label>
+                                            <div className="mt-1 rounded-md shadow-sm">
+                                                <textarea id="about" rows={2} className="form-textarea block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="w-full mb-4">
+                                        <div className="p-4 shadow rounded border border-gray-300">
+                                            <div className="block">
+                                                <div className="border-b border-gray-200">
+                                                    <nav className="flex -mb-px">
+                                                        <a href="#" className="ml-8 group inline-flex items-center py-2 px-1 border-b-2 border-indigo-500 font-medium text-sm leading-5 text-indigo-600 focus:outline-none focus:text-indigo-800 focus:border-indigo-700" aria-current="page">
+                                                            <span>English</span>
+                                                        </a>
+                                                        <a href="#" className="ml-8 group inline-flex items-center py-2 px-1 border-b-2 border-transparent font-medium text-sm leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300">
+                                                            <span>Estonian</span>
+                                                        </a>
+                                                    </nav>
+                                                </div>
+                                                <div className="mt-4" role="group" aria-labelledby="teams-headline">
+                                                    <div className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
+                                                        <span className="w-2.5 h-2.5 mr-4 bg-indigo-500 rounded-full"></span>
+                                                        <span className="truncate">
+                                                            Engineering
+                                                        </span>
+                                                    </div>
+                                                    <div className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
+                                                        <span className="w-2.5 h-2.5 mr-4 bg-indigo-500 rounded-full"></span>
+                                                        <span className="truncate">
+                                                            Engineering
+                                                        </span>
+                                                    </div>
+                                                    <div className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
+                                                        <span className="w-2.5 h-2.5 mr-4 bg-indigo-500 rounded-full"></span>
+                                                        <span className="truncate">
+                                                            Engineering
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="w-full">
+                                        <div className="p-4 shadow rounded border border-gray-300">
+                                            <div className="block">
+                                                <div className="border-b border-gray-200">
+                                                    <nav className="flex -mb-px">
+                                                        <a href="#" className="ml-8 group inline-flex items-center py-2 px-1 border-b-2 border-indigo-500 font-medium text-sm leading-5 text-indigo-600 focus:outline-none focus:text-indigo-800 focus:border-indigo-700" aria-current="page">
+                                                            <span>News Credits</span>
+                                                        </a>
+                                                        <a href="#" className="ml-8 group inline-flex items-center py-2 px-1 border-b-2 border-transparent font-medium text-sm leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300">
+                                                            <span>Visual Credits</span>
+                                                        </a>
+                                                    </nav>
+                                                </div>
+                                                <div className="mt-4" role="group" aria-labelledby="teams-headline">
+                                                    <div className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
+                                                        <span className="w-2.5 h-2.5 mr-4 bg-indigo-500 rounded-full"></span>
+                                                        <span className="truncate">
+                                                            Engineering
+                                                        </span>
+                                                    </div>
+                                                    <div className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
+                                                        <span className="w-2.5 h-2.5 mr-4 bg-indigo-500 rounded-full"></span>
+                                                        <span className="truncate">
+                                                            Engineering
+                                                        </span>
+                                                    </div>
+                                                    <div className="group flex items-center px-3 text-xs leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition ease-in-out duration-150">
+                                                        <span className="w-2.5 h-2.5 mr-4 bg-indigo-500 rounded-full"></span>
+                                                        <span className="truncate">
+                                                            Engineering
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="absolute mb-4 mr-4 bottom-0 inset-x-0">
+                                        <div className="w-full space-x-2 flex justify-end">
+                                            <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium leading-4 bg-blue-100 text-blue-800">
+                                                Local Estonian Content
+                                            </span>
+                                            <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium leading-4 bg-blue-100 text-blue-800">
+                                                NSFW
+                                            </span>
+                                            <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium leading-4 bg-blue-100 text-blue-800">
+                                                NSFL
+                                            </span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className="flex flex-no-wrap justify-center">
                         <div className="w-1/12 mx-auto flex-none float-left">
-                            <div className="bg-indigo-400 p-1 h-40 w-1 mx-auto"></div>
+                            <div className="bg-purple-700 p-1 h-32 w-1 mx-auto"></div>
                         </div>
                     </div>
                 </div>
