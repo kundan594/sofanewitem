@@ -82,6 +82,11 @@ class FetchDataService {
 		return http.post("/news_items/" + data.id + "/" + apiCallEndPoint + "?token=abcdef", {});
 
 	}
+
+	deleteData(id){
+		console.log(id);
+		return http.delete("/news_items/"+id +"?token=abcdef");
+	}
 	newDataSave(data) {
 		console.log(data, "  === data");
 		return http.post("/news_items?token=abcdef", data);

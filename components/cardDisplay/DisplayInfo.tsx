@@ -22,6 +22,15 @@ const DisplayInfo = () => {
 	const [isAddItem, setIsAddItem] = useState(false);
 
 	const [newsItem, setNewsItem] = useState(null);
+	const status  = {
+		'new': 'New',
+		'awaiting_review_by_lead_journalist': 'Awaiting review by lead journalist',
+		'awaiting_video_upload': 'Awaiting video upload',
+		'awaiting_review_by_lead_video_editor': 'Awaiting review by lead video editor',
+		'ready_for_push': 'Ready For Push',
+		'pushed_to_feed': 'Pushed To Feed',
+		'removed_from_feed': 'Removed From Feed'			
+		   };
 	const [paginationData, setPaginationData] = useState(
 		{
 			limit: 100,
@@ -29,6 +38,8 @@ const DisplayInfo = () => {
 			total_data: 0
 		}
 	);
+
+	
 
 	useEffect(() => {
 		fetchData1();
@@ -69,8 +80,7 @@ const DisplayInfo = () => {
 	}
 
 	function processedDataInfo(item, apiEndPoint, e) {
-		e.preventDefault();
-		console.log(item, "asdas");
+		e.preventDefault();		
 		let data = FetchDataService.processedData(item, apiEndPoint)
 			.then((response) => {
 				fetchData1();
@@ -79,6 +89,42 @@ const DisplayInfo = () => {
 			.catch((e) => {
 				console.log(e);
 			});
+	}
+
+	function deleteItem(item, apiEndPoint, e){
+		e.preventDefault();
+		let data = FetchDataService.deleteData(item.id)
+			.then((response:any) => {
+				console.log(response);
+				if(response.data.success==true){
+					console.log(response,"onssdsdas");
+					transformNewItems(item,"delete");
+				}
+				//fetchData1();
+
+			})
+			.catch((e) => {
+				console.log(e);
+			});
+	}
+
+	function transformNewItems(itemValue,actionType){
+		
+		switch(actionType) {
+			case "delete":
+			   //let data = DataAll
+			   console.log(itemValue,actionType);			   
+			  let  arr = DataAll.filter(item => item.id !=itemValue.id);
+			  setfetchData(arr);
+
+			  break;
+			  case "delete111":
+			  // code block
+			  break;
+			default:
+			  // code block
+		  }
+
 	}
 
 	function fetchData1() {
@@ -124,7 +170,20 @@ const DisplayInfo = () => {
 		inputRef.current.click();
 	}
 
-	function actionRender(item) {
+	 function showStatus(itemkey){
+		 let statusReturn = '';
+		Object.keys(status).forEach(key => {			
+			if(itemkey==key){				  
+				   statusReturn =  status[key];
+			}
+		  });
+
+		  return statusReturn;
+	}
+
+	
+
+	function actionRender(item) {		
 		switch (item.state) {
 			case "new": {
 				return (
@@ -220,6 +279,7 @@ const DisplayInfo = () => {
 					</span>
 				);
 			}
+			
 			default: {
 				return "";
 			}
@@ -332,13 +392,18 @@ const DisplayInfo = () => {
 								<span className="text-gray-800 font-medium text-sm mr-1">Current Status:</span>
 								<div className="space-x-2 flex flex-wrap items-center">
 									<span className="px-2 my-1 inline-flex text-xs leading-5 font-semibold rounded-full border border-gray-800 bg-cool-gray-100 text-cool-gray-800">
-										{item.state}
+										{showStatus(item.state)}
 									</span>
 								</div>
-							</div>
+							</div>						
 						</div>
 					</div>
 					<div className="w-full md:hidden flex items-center justify-center pt-2 mt-2 pl-2 block border-t-2 border-gray-200 ">
+					<div className="w-full flex items-center justify-center">
+					<span onClick={(e) => deleteItem(item, "DELETE", e)} className="px-2 py-0.5 my-1 inline-flex text-xs leading-5 font-semibold rounded-full border border-red-800 bg-red-100 hover:bg-red-200 text-red-800 cursor-pointer">
+						Delete
+					</span>
+						</div>
 						<div className="w-full flex items-center justify-center">
 							{actionRender(item)}
 						</div>
