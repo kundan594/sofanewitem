@@ -221,21 +221,8 @@ const Demo = () => {
                     <div className="flex flex-no-wrap justify-center">
                         <div className="w-11/12 mx-auto flex-none float-left">
                             <div className="md:flex shadow-lg mx-6 md:mx-auto w-full h-xl">
-                                <div className="w-full md:w-1/5 relative z-10">
-                                    <div className="absolute inset-x-0 top-0 transform translate-y-px">
-                                        <div className="flex justify-center transform translate-y-1/2">
-                                            <span className="bg-red-400 inline-flex w-full h-10 flex items-center justify-center text-center px-4 py-1 text-xs leading-5 font-semibold tracking-wider uppercase text-white">
-                                                Pushed To Feed
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div className="h-full w-full bg-red-400 rounded-lg rounded-r-none flex items-start">
-                                        <img className="h-auto w-full shadow-2xl rounded-lg rounded-r-none rounded-b-none"
-                                            src="https://cdn.so.fa.dog/thumbnails-int/76c3923c-0f5f-11eb-8a82-01bf9fcdf51b.jpg_43.jpg" alt="bag" />
-                                    </div>
-
-                                </div>
-                                <div className="relative w-full h-full md:w-4/5 px-4 py-2 bg-white rounded-r-lg border-r-8 border-red-400">
+                                
+                                <div className="relative w-full h-full md:w-4/5 px-4 py-2 bg-white rounded-l-lg border-l-8 border-red-400">
                                     <div className="mb-4">
                                         <div className="w-full flex justify-end">
                                             <button className="px-2 py-1 bg-red-500 text-white rounded text-xs cursor-pointer">Remove Feed</button>
@@ -330,6 +317,20 @@ const Demo = () => {
                                         </div>
                                     </div>
                                 </div>
+                                <div className="w-full md:w-1/5 relative z-10">
+                                    <div className="absolute inset-x-0 top-0 transform translate-y-px">
+                                        <div className="flex justify-center transform translate-y-1/2">
+                                            <span className="bg-red-400 inline-flex w-full h-10 flex items-center justify-center text-center px-4 py-1 text-xs leading-5 font-semibold tracking-wider uppercase text-white">
+                                                Pushed To Feed
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div className="h-full w-full bg-red-400 rounded-lg rounded-l-none flex items-start">
+                                        <img className="h-auto w-full shadow-2xl rounded-lg rounded-l-none rounded-b-none"
+                                            src="https://cdn.so.fa.dog/thumbnails-int/76c3923c-0f5f-11eb-8a82-01bf9fcdf51b.jpg_43.jpg" alt="bag" />
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -343,27 +344,8 @@ const Demo = () => {
                     <div className="flex flex-no-wrap justify-center">
                         <div className="w-11/12 mx-auto flex-none float-left">
                             <div className="md:flex shadow-lg mx-6 md:mx-auto w-full h-xl">
-                                <div className="w-full md:w-1/5 relative z-10">
-                                    <div className="h-full w-full bg-gray-100 border-r border-gray-200 p-2 rounded-lg rounded-r-none flex items-start">
-                                        <div className="w-full flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
-                                            <div className="text-center">
-                                                <svg className="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48">
-                                                    <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                                </svg>
-                                                <p className="mt-1 text-sm text-gray-600">
-                                                    <button type="button" className="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition duration-150 ease-in-out">
-                                                        Upload a file
-                                                    </button>
-                                                    or drag and drop
-                                                </p>
-                                                <p className="mt-1 text-xs text-gray-500">
-                                                    MP4, MOV, WMV up to 500MB
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="relative w-full h-full md:w-4/5 px-4 py-2 bg-white rounded-r-lg border-r-8 border-red-400">
+                                
+                                <div className="relative w-full h-full md:w-4/5 px-4 py-2 bg-white rounded-l-lg border-l-8 border-red-400">
                                     <div className="py-2">
                                         <div className="w-full flex justify-end">
                                             <button className="px-2 py-1 bg-red-500 text-white rounded text-xs cursor-pointer">Remove Feed</button>
@@ -502,6 +484,28 @@ const Demo = () => {
                                         </div>
                                     </div>
                                 </div>
+
+                                <div className="w-full md:w-1/5 relative z-10">
+                                    <div className="h-full w-full bg-gray-100 border-l border-gray-200 p-2 rounded-lg rounded-l-none flex items-start">
+                                        <div className="w-full flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                                            <div className="text-center">
+                                                <svg className="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48">
+                                                    <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                </svg>
+                                                <p className="mt-1 text-sm text-gray-600">
+                                                    <button type="button" className="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition duration-150 ease-in-out">
+                                                        Upload a file
+                                                    </button>
+                                                    or drag and drop
+                                                </p>
+                                                <p className="mt-1 text-xs text-gray-500">
+                                                    MP4, MOV, WMV up to 500MB
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
