@@ -12,7 +12,7 @@ const Demo = () => {
 
     return (
         <div className="w-full h-full bg-black">
-            <nav className="bg-gray-800">
+            <nav className="bg-gray-800 sticky top-0 z-30">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between h-16">
                         <div className="flex">
@@ -28,9 +28,9 @@ const Demo = () => {
                                     </svg>
                                 </button>
                             </div>
-                            <div className="flex-shrink-0 flex items-center">
-                                <img className="block lg:hidden h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-on-dark.svg" alt="Workflow logo" />
-                                <img className="hidden lg:block h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-logo-on-dark.svg" alt="Workflow logo" />
+                            <div className="flex-shrink-0 flex items-center space-x-2">
+                                <img className="h-8 w-auto" src="/color-logo.png" alt="So.Fa.Dog" />
+                                <img className="h-4 w-auto" src="/logo-title-white.png" alt="So.Fa.Dog" />
                             </div>
                         </div>
                         <div className="flex items-center">
