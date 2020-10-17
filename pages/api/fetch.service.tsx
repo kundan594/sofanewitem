@@ -96,6 +96,10 @@ class FetchDataService {
 		return http.put(`/piece/${id}`, data);
 	}
 
+	decrement_increment_ordinal(data,apiCallEndPoint){
+		return http.post("/news_items/" + data.id + "/" + apiCallEndPoint + "?token=abcdef", {});
+	}
+
 	delete(id) {
 		return http.delete(`/piece/${id}`);
 	}

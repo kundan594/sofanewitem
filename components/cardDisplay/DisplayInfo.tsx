@@ -108,24 +108,88 @@ const DisplayInfo = () => {
 			});
 	}
 
+	function decrement_ordinal(item, apiEndPoint, e){
+		e.preventDefault();
+		let data = FetchDataService.decrement_increment_ordinal(item,apiEndPoint)
+			.then((response:any) => {
+				console.log(response);
+				if(response.data.success==true){
+					console.log(response,"onssdsdas");
+					transformNewItems(item,"decrement_ordinal");
+				}
+				//fetchData1();
+
+			})
+			.catch((e) => {
+				console.log(e);
+			});
+
+	}
+
+	function increment_ordinal(item, apiEndPoint, e){
+		e.preventDefault();
+		let data = FetchDataService.decrement_increment_ordinal(item,apiEndPoint)
+			.then((response:any) => {
+				console.log(response);
+				if(response.data.success==true){				
+					transformNewItems(item,"increment_ordinal");
+				}
+				//fetchData1();
+
+			})
+			.catch((e) => {
+				console.log(e);
+			});
+
+	}
+
+
+	function SearchIdIndex(item,itemValue){
+
+	}
+
 	function transformNewItems(itemValue,actionType){
+		let arr = {"news_items" :[] };	
+		let old_index,new_index;
 		
 		switch(actionType) {
-			case "delete":
-			   //let data = DataAll
-			   console.log(itemValue,actionType);			   
-			  let  arr = DataAll.filter(item => item.id !=itemValue.id);
+			case "delete":	
+			  arr.news_items = DataAll.news_items.filter(item => item.id !=itemValue.id);
 			  setfetchData(arr);
+			  break;
+			  case "decrement_ordinal":
+				  
+				  old_index  = DataAll.news_items.findIndex(item => item.id ==itemValue.id);
+				  new_index  = old_index + 1;
+				  arr.news_items =  array_move(DataAll.news_items,old_index,new_index);
+				  setfetchData(arr);
+			  break;
 
-			  break;
-			  case "delete111":
-			  // code block
-			  break;
+			  case "increment_ordinal":				
+				  old_index  = DataAll.news_items.findIndex(item => item.id ==itemValue.id);
+				  new_index  = old_index - 1;
+				  arr.news_items =  array_move(DataAll.news_items,old_index,new_index);
+				  setfetchData(arr);
+				break;
+
+			  
 			default:
 			  // code block
 		  }
 
 	}
+	function array_move(arr, old_index, new_index) {
+		console.log(arr, old_index, new_index);
+		if (new_index >= arr.length) {
+			var k = new_index - arr.length + 1;
+			while (k--) {
+				arr.push(undefined);
+			}
+		}
+		arr.splice(new_index, 0, arr.splice(old_index, 1)[0]);
+		console.log(arr);
+		return arr; // for testing
+	};
 
 	function fetchData1() {
 		let data = FetchDataService.getAll1(paginationData)
@@ -398,10 +462,16 @@ const DisplayInfo = () => {
 							</div>						
 						</div>
 					</div>
-					<div className="w-full md:hidden flex items-center justify-center pt-2 mt-2 pl-2 block border-t-2 border-gray-200 ">
+					<div className="w-full flex items-center justify-center pt-2 mt-2 pl-2 block border-t-2 border-gray-200 ">
 					<div className="w-full flex items-center justify-center">
 					<span onClick={(e) => deleteItem(item, "DELETE", e)} className="px-2 py-0.5 my-1 inline-flex text-xs leading-5 font-semibold rounded-full border border-red-800 bg-red-100 hover:bg-red-200 text-red-800 cursor-pointer">
 						Delete
+					</span>
+					<span onClick={(e) => decrement_ordinal(item, "decrement_ordinal", e)} className="px-2 py-0.5 my-1 inline-flex text-xs leading-5 font-semibold rounded-full border border-red-800 bg-red-100 hover:bg-red-200 text-red-800 cursor-pointer">
+					decrement ordinal
+					</span>
+					<span onClick={(e) => increment_ordinal(item, "increment_ordinal", e)} className="px-2 py-0.5 my-1 inline-flex text-xs leading-5 font-semibold rounded-full border border-red-800 bg-red-100 hover:bg-red-200 text-red-800 cursor-pointer">
+					increment ordinal
 					</span>
 						</div>
 						<div className="w-full flex items-center justify-center">
